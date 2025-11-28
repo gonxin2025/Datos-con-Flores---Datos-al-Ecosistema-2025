@@ -52,8 +52,8 @@ Tres agentes especializados trabajando en paralelo:
    - Listo para exportar a PDF
 
 3. **Content Manager RRSS** 📱
-   - Contenido optimizado para 7 plataformas
-   - Hilos de Twitter, carruseles de Instagram
+   - Contenido optimizado para Redes Sociales
+   - Hilos de Twitter
    - Posts de LinkedIn con tono profesional
 
 ### 📊 Visualización Dinámica
