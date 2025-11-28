@@ -1,5 +1,5 @@
 [readme-proyecto-dane.md](https://github.com/user-attachments/files/23811946/readme-proyecto-dane.md)
-# 📊 Sistema Automatizado de Indicadores Laborales del Caribe con IA
+# 📊 Sistema Automatizado 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![n8n](https://img.shields.io/badge/n8n-workflow-red)](https://n8n.io)
