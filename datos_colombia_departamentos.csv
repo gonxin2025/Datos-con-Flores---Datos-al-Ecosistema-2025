@@ -1,0 +1,101 @@
+nombre;sexo;nivel_estudio;ocupacion;edad;rango_edad;ingresos_mensuales;percepcion_calidad_vida;departamento;ciudad
+Sebasti†n Hern†ndez;F;Primaria;Estudiante;42;31-50;Entre 2 y 3 SM;Mala;Antioquia;ItagÅ°
+Daniel D°az;M;TÇcnico;Desempleado;70;51+;1 salario m°nimo;Regular;Atl†ntico;Barranquilla
+Sof°a L¢pez;F;Secundaria;Independiente;20;18-30;Entre 3 y 5 SM;Regular;Antioquia;Medell°n
+Sof°a Garc°a;F;Secundaria;Hogar;47;31-50;1 salario m°nimo;Regular;Bol°var;MaganguÇ
+Felipe L¢pez;M;Secundaria;Independiente;47;31-50;1 salario m°nimo;Buena;Bol°var;Cartagena
+Juan L¢pez;M;Posgrado;Empleado;34;31-50;Entre 3 y 5 SM;Mala;Antioquia;ItagÅ°
+Carlos Fern†ndez;M;Universitario;Desempleado;74;51+;Entre 1 y 2 SM;Regular;Antioquia;Medell°n
+Paula Mart°nez;M;Universitario;Hogar;15;Menor de edad;Entre 3 y 5 SM;Mala;Cundinamarca;Mosquera
+Valentina Garc°a;M;Universitario;Empleado;45;31-50;1 salario m°nimo;Mala;Cundinamarca;El Rosal
+Juan Hern†ndez;M;Tecn¢logo;Independiente;61;51+;1 salario m°nimo;Mala;Cundinamarca;Madrid
+Luisa Mart°nez;M;Universitario;Desempleado;49;31-50;Entre 2 y 3 SM;Regular;Boyac†;Tunja
+Juan L¢pez;M;TÇcnico;Independiente;69;51+;Entre 1 y 2 SM;Buena;Bol°var;Turbaco
+Camila Fern†ndez;M;Secundaria;Independiente;34;31-50;M†s de 5 SM;Mala;Antioquia;Medell°n
+Felipe Su†rez;M;Universitario;Independiente;66;51+;1 salario m°nimo;Mala;Cundinamarca;Mosquera
+Sebasti†n L¢pez;M;TÇcnico;Independiente;68;51+;Entre 2 y 3 SM;Regular;Atl†ntico;Malambo
+Sara Mart°nez;F;Secundaria;Empleado;24;18-30;Entre 3 y 5 SM;Mala;Nari§o;Pasto
+Juan Garc°a;M;Primaria;Hogar;41;31-50;1 salario m°nimo;Mala;Cundinamarca;El Rosal
+Jorge Su†rez;F;TÇcnico;Jubilado;80;51+;M†s de 5 SM;Buena;Atl†ntico;Barranquilla
+Sebasti†n Garc°a;M;Posgrado;Estudiante;67;51+;M†s de 5 SM;Buena;Valle del Cauca;Cali
+Sara Garc°a;M;Primaria;Empleado;71;51+;1 salario m°nimo;Regular;Boyac†;Tunja
+Carlos D°az;F;Universitario;Hogar;43;31-50;M†s de 5 SM;Regular;Bol°var;MaganguÇ
+Daniel D°az;M;TÇcnico;Hogar;67;51+;Entre 3 y 5 SM;Regular;Nari§o;Ipiales
+Carlos Torres;F;Secundaria;Estudiante;38;31-50;Entre 1 y 2 SM;Regular;Santander;Giron
+Alejandro Garc°a;F;Secundaria;Jubilado;37;31-50;Entre 1 y 2 SM;Regular;Boyac†;Duitama
+Luisa Mart°nez;F;TÇcnico;Independiente;53;51+;Entre 2 y 3 SM;Buena;Nari§o;Ipiales
+Carlos Torres;M;Tecn¢logo;Empleado;38;31-50;1 salario m°nimo;Regular;Tolima;Herveo
+Carlos Su†rez;M;Primaria;Independiente;33;31-50;M†s de 5 SM;Regular;Santander;Floridablanca
+Diana Hern†ndez;M;Secundaria;Jubilado;20;18-30;1 salario m°nimo;Buena;Valle del Cauca;Palmira
+Sara Fern†ndez;F;Primaria;Empleado;45;31-50;Entre 3 y 5 SM;Buena;Valle del Cauca;Palmira
+Miguel D°az;F;Primaria;Independiente;34;31-50;Entre 2 y 3 SM;Buena;Nari§o;Pasto
+Paula D°az;M;Posgrado;Jubilado;48;31-50;Entre 2 y 3 SM;Mala;Antioquia;Medell°n
+AndrÇs Mart°nez;F;Primaria;Hogar;20;18-30;Entre 2 y 3 SM;Regular;Santander;Floridablanca
+Mateo D°az;M;Secundaria;Empleado;43;31-50;1 salario m°nimo;Regular;Cundinamarca;El Rosal
+Natalia L¢pez;M;Posgrado;Jubilado;50;31-50;Entre 3 y 5 SM;Regular;Atl†ntico;Malambo
+Mateo Torres;F;Primaria;Hogar;34;31-50;1 salario m°nimo;Regular;Boyac†;Sogamoso
+Paula L¢pez;M;Secundaria;Independiente;30;18-30;Entre 2 y 3 SM;Mala;Tolima;IbaguÇ
+Diana D°az;M;Posgrado;Empleado;25;18-30;1 salario m°nimo;Regular;Boyac†;Tunja
+Sof°a Garc°a;F;Secundaria;Jubilado;16;Menor de edad;1 salario m°nimo;Regular;Bol°var;MaganguÇ
+Laura L¢pez;M;Posgrado;Hogar;18;18-30;Entre 3 y 5 SM;Mala;Bol°var;Cartagena
+Paula Su†rez;F;Secundaria;Jubilado;51;51+;M†s de 5 SM;Mala;Tolima;Espinal
+Mateo Hern†ndez;M;TÇcnico;Desempleado;60;51+;Entre 3 y 5 SM;Regular;Tolima;Espinal
+Alejandro Mart°nez;F;Universitario;Jubilado;32;31-50;Entre 3 y 5 SM;Regular;Cundinamarca;Madrid
+Camila Torres;M;Universitario;Independiente;45;31-50;Entre 2 y 3 SM;Buena;Valle del Cauca;Tulu†
+Sof°a Mart°nez;F;Tecn¢logo;Desempleado;76;51+;Entre 1 y 2 SM;Regular;Atl†ntico;Barranquilla
+Sebasti†n Torres;M;TÇcnico;Jubilado;34;31-50;M†s de 5 SM;Regular;Tolima;Espinal
+Sof°a Hern†ndez;M;Posgrado;Estudiante;45;31-50;Entre 1 y 2 SM;Buena;Cundinamarca;Madrid
+Valentina Fern†ndez;F;Tecn¢logo;Empleado;75;51+;M†s de 5 SM;Regular;Boyac†;Tunja
+Sara Hern†ndez;F;Posgrado;Independiente;28;18-30;M†s de 5 SM;Regular;Nari§o;Pasto
+Mar°a D°az;F;Tecn¢logo;Jubilado;52;51+;M†s de 5 SM;Buena;Tolima;Herveo
+Natalia Torres;F;Universitario;Desempleado;67;51+;Entre 2 y 3 SM;Buena;Boyac†;Sogamoso
+AndrÇs Fern†ndez;F;TÇcnico;Desempleado;43;31-50;1 salario m°nimo;Mala;Bol°var;Cartagena
+Sof°a Fern†ndez;M;Secundaria;Independiente;58;51+;1 salario m°nimo;Buena;Antioquia;Bello
+Sara D°az;M;Secundaria;Empleado;67;51+;Entre 2 y 3 SM;Regular;Santander;Floridablanca
+Laura G¢mez;M;Tecn¢logo;Jubilado;45;31-50;M†s de 5 SM;Regular;Antioquia;Bello
+Laura Garc°a;M;Tecn¢logo;Independiente;23;18-30;Entre 2 y 3 SM;Buena;Antioquia;Bello
+Jorge Torres;M;Primaria;Empleado;65;51+;Entre 1 y 2 SM;Buena;Antioquia;Medell°n
+Paula Rodr°guez;F;Universitario;Jubilado;43;31-50;Entre 2 y 3 SM;Buena;Santander;Giron
+Natalia Su†rez;F;Secundaria;Estudiante;61;51+;1 salario m°nimo;Mala;Antioquia;Bello
+Paula Su†rez;M;Primaria;Empleado;59;51+;1 salario m°nimo;Mala;Antioquia;Medell°n
+Mateo G¢mez;F;Tecn¢logo;Jubilado;37;31-50;1 salario m°nimo;Buena;Cundinamarca;Mosquera
+Alejandro Torres;F;Secundaria;Jubilado;40;31-50;Entre 3 y 5 SM;Mala;Tolima;Espinal
+AndrÇs L¢pez;M;Primaria;Independiente;33;31-50;Entre 2 y 3 SM;Regular;Antioquia;ItagÅ°
+Diana Fern†ndez;M;TÇcnico;Empleado;80;51+;Entre 1 y 2 SM;Regular;Santander;Bucaramanga
+Laura D°az;F;Primaria;Desempleado;57;51+;Entre 3 y 5 SM;Regular;Boyac†;Tunja
+Juan Su†rez;M;Primaria;Estudiante;70;51+;Entre 1 y 2 SM;Buena;Cundinamarca;El Rosal
+Mateo Torres;M;TÇcnico;Empleado;17;Menor de edad;Entre 1 y 2 SM;Mala;Antioquia;Envigado
+Alejandro Rodr°guez;F;Universitario;Empleado;45;31-50;Entre 1 y 2 SM;Buena;Antioquia;Envigado
+Paula Fern†ndez;F;TÇcnico;Empleado;58;51+;Entre 1 y 2 SM;Buena;Boyac†;Duitama
+Sof°a Hern†ndez;M;Primaria;Hogar;51;51+;Entre 2 y 3 SM;Regular;Nari§o;Pasto
+Daniel Hern†ndez;M;TÇcnico;Empleado;16;Menor de edad;Entre 3 y 5 SM;Regular;Antioquia;ItagÅ°
+Sara Su†rez;F;Primaria;Estudiante;56;51+;Entre 3 y 5 SM;Buena;Antioquia;ItagÅ°
+Alejandro G¢mez;F;Universitario;Independiente;54;51+;1 salario m°nimo;Mala;Valle del Cauca;Palmira
+Sof°a G¢mez;F;Posgrado;Desempleado;67;51+;Entre 3 y 5 SM;Mala;Bol°var;MaganguÇ
+Alejandro Mart°nez;F;Posgrado;Hogar;26;18-30;Entre 3 y 5 SM;Regular;Boyac†;Tunja
+Valentina Torres;F;TÇcnico;Desempleado;55;51+;Entre 3 y 5 SM;Mala;Antioquia;Medell°n
+Mateo G¢mez;M;Posgrado;Jubilado;77;51+;Entre 3 y 5 SM;Buena;Antioquia;Medell°n
+Luisa Hern†ndez;F;Universitario;Hogar;26;18-30;M†s de 5 SM;Regular;Atl†ntico;Malambo
+Jorge L¢pez;F;Universitario;Independiente;76;51+;1 salario m°nimo;Buena;Bol°var;MaganguÇ
+Carlos Rodr°guez;M;Primaria;Independiente;31;31-50;M†s de 5 SM;Regular;Antioquia;Envigado
+Valentina D°az;F;Secundaria;Independiente;32;31-50;M†s de 5 SM;Mala;Atl†ntico;Malambo
+Paula Fern†ndez;M;Posgrado;Empleado;52;51+;Entre 3 y 5 SM;Buena;Cundinamarca;Facatativ†
+Paula Su†rez;F;TÇcnico;Jubilado;47;31-50;M†s de 5 SM;Regular;Cundinamarca;El Rosal
+Natalia Hern†ndez;M;Primaria;Jubilado;63;51+;Entre 2 y 3 SM;Mala;Santander;Bucaramanga
+Mateo Su†rez;M;Secundaria;Hogar;38;31-50;Entre 3 y 5 SM;Mala;Valle del Cauca;Cali
+Laura Su†rez;F;Universitario;Empleado;20;18-30;Entre 2 y 3 SM;Buena;Santander;Floridablanca
+Daniel D°az;M;TÇcnico;Hogar;56;51+;1 salario m°nimo;Mala;Boyac†;Duitama
+Miguel Hern†ndez;F;Universitario;Jubilado;39;31-50;Entre 3 y 5 SM;Mala;Nari§o;Tumaco
+Carlos Garc°a;F;Primaria;Empleado;33;31-50;Entre 1 y 2 SM;Buena;Antioquia;Bello
+Miguel G¢mez;M;Primaria;Desempleado;16;Menor de edad;Entre 3 y 5 SM;Mala;Tolima;IbaguÇ
+Paula G¢mez;M;Posgrado;Desempleado;59;51+;Entre 3 y 5 SM;Buena;Cundinamarca;El Rosal
+Valentina Fern†ndez;F;Universitario;Independiente;21;18-30;Entre 1 y 2 SM;Buena;Antioquia;Medell°n
+Laura Su†rez;M;Secundaria;Hogar;19;18-30;Entre 1 y 2 SM;Buena;Atl†ntico;Barranquilla
+Mar°a Mart°nez;F;Tecn¢logo;Desempleado;18;18-30;M†s de 5 SM;Regular;Antioquia;ItagÅ°
+Jorge Hern†ndez;M;Secundaria;Hogar;73;51+;M†s de 5 SM;Mala;Atl†ntico;Malambo
+Valentina D°az;F;TÇcnico;Desempleado;60;51+;Entre 1 y 2 SM;Buena;Valle del Cauca;Buga
+Miguel Su†rez;F;Universitario;Hogar;46;31-50;Entre 1 y 2 SM;Buena;Nari§o;Ipiales
+Laura Garc°a;M;Secundaria;Estudiante;19;18-30;M†s de 5 SM;Regular;Valle del Cauca;Palmira
+Carlos Torres;M;TÇcnico;Hogar;18;18-30;Entre 3 y 5 SM;Buena;Atl†ntico;Barranquilla
+Alejandro Fern†ndez;M;Universitario;Desempleado;29;18-30;Entre 2 y 3 SM;Mala;Antioquia;Envigado
+Sebasti†n Hern†ndez;F;TÇcnico;Empleado;66;51+;Entre 3 y 5 SM;Buena;Valle del Cauca;Cali
