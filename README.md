@@ -5,7 +5,7 @@
 [![n8n](https://img.shields.io/badge/n8n-workflow-red)](https://n8n.io)
 [![DANE](https://img.shields.io/badge/Datos-DANE-blue)](https://www.dane.gov.co)
 
-> **Proyecto ganador del Reto Universidad del Magdalena - Equipo "Datos con Flores" (El Rosal, Cundinamarca)**
+> Equipo "Datos con Flores" (El Rosal, Cundinamarca)**
 
 Sistema automatizado que transforma datos abiertos del DANE en análisis laborales completos con IA generativa, dashboards interactivos y difusión automática en redes sociales.
 
