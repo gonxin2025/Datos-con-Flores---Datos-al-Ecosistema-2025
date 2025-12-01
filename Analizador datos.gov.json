@@ -1,0 +1,1292 @@
+{
+  "name": "Analizador datos.gov",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "30b7d70a-d49b-4581-8128-3e0a9385f069",
+      "name": "Calculator1",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "position": [
+        496,
+        352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "2a9c522a-e3f3-43f2-b567-a5d19765c6fb",
+      "name": "Think1",
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "position": [
+        624,
+        352
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "05d2b9ec-97ad-4616-93ef-7b8590c1173a",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        368,
+        352
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "🏆 Reto DANE - Análisis de Datos Territoriales",
+        "formDescription": "Configura el análisis de microdatos del Sena",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "departamento",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Antioquia"
+                  },
+                  {
+                    "option": "Bolívar"
+                  },
+                  {
+                    "option": "Boyacá"
+                  },
+                  {
+                    "option": "Cundinamarca"
+                  },
+                  {
+                    "option": "Nariño"
+                  },
+                  {
+                    "option": "Santander"
+                  },
+                  {
+                    "option": "Tolima"
+                  },
+                  {
+                    "option": "Valle del Cauca"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "sexo",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "F"
+                  },
+                  {
+                    "option": "M"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "nivel_estudio",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Posgrado"
+                  },
+                  {
+                    "option": "Primaria"
+                  },
+                  {
+                    "option": "Secundaria"
+                  },
+                  {
+                    "option": "Técnico"
+                  },
+                  {
+                    "option": "Tecnólogo"
+                  },
+                  {
+                    "option": "Universitario"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "rango_edad",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "18-30"
+                  },
+                  {
+                    "option": "31-50"
+                  },
+                  {
+                    "option": "51+"
+                  },
+                  {
+                    "option": "Menor de edad"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "percepcion_calidad_vida",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Buena"
+                  },
+                  {
+                    "option": "Regular"
+                  },
+                  {
+                    "option": "Mala"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "ocupacion",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Desempleado"
+                  },
+                  {
+                    "option": "Empleado"
+                  },
+                  {
+                    "option": "Estudiante"
+                  },
+                  {
+                    "option": "Hogar"
+                  },
+                  {
+                    "option": "Independiente"
+                  },
+                  {
+                    "option": "Jubilado"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "ingresos_mensuales",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "1 salario mínimo"
+                  },
+                  {
+                    "option": "Entre 1 y 2 SM"
+                  },
+                  {
+                    "option": "Entre 2 y 3 SM"
+                  },
+                  {
+                    "option": "Entre 3 y 5 SM"
+                  },
+                  {
+                    "option": "Más de 5 SM"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "🏆 Configuración Reto DANE",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -240,
+        128
+      ],
+      "id": "8cfb0ea3-fbe5-4f2b-9540-7a62375e375a",
+      "webhookId": "8b700215-4509-4824-9fa0-1c40904b59b2"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get row(s) in Data table",
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "R2XeGJq1X5VzEWal",
+          "mode": "id"
+        },
+        "matchType": "allConditions",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        752,
+        352
+      ],
+      "id": "7e81ae6c-7bed-45b5-ad2a-fa8dca4ad6f0",
+      "name": "Get row(s) in Data table"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extraer datos del formulario\nconst formData = $input.item.json;\n\n// Función para normalizar arrays (manejar undefined/null)\nfunction normalizeArray(value) {\n  if (!value) return [];\n  if (Array.isArray(value)) return value;\n  return [value];\n}\n\n// Construir objeto de filtros CON NOMBRES EXACTOS DE COLUMNAS (minúsculas)\nconst filters = {\n  departamento: normalizeArray(formData.departamento),\n  sexo: normalizeArray(formData.sexo),\n  nivel_estudio: normalizeArray(formData.nivel_estudio),\n  rango_edad: normalizeArray(formData.rango_edad),\n  percepcion_calidad_vida: normalizeArray(formData.percepcion_calidad_vida),\n  ocupacion: normalizeArray(formData.ocupacion),\n  ingresos_mensuales: normalizeArray(formData.ingresos_mensuales)\n};\n\n// Validar que al menos un filtro tenga valores\nconst hasFilters = Object.values(filters).some(arr => arr.length > 0);\n\nif (!hasFilters) {\n  throw new Error('⚠️ Debes seleccionar al menos un filtro para continuar');\n}\n\n// Devolver en el formato esperado por el agente\nreturn [{\n  json: {\n    filters: filters,\n    metadata: {\n      timestamp: new Date().toISOString(),\n      total_filters: Object.values(filters).filter(arr => arr.length > 0).length\n    }\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -32,
+        128
+      ],
+      "id": "2a4f7ca4-4332-45ed-8c22-84f5b95f1ff2",
+      "name": "Prepare Filters"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener todos los items de entrada\nconst items = $input.all();\n// Suponiendo que solo usas el primer item\nconst item = items[0] || {};\nconst agentOutput = item.json?.output || '';\n\n// Buscar el inicio del HTML (<!DOCTYPE o <html)\nconst htmlStart = agentOutput.indexOf('<!DOCTYPE');\nconst htmlStartAlt = agentOutput.indexOf('<html');\n\nlet html = '';\n\nif (htmlStart !== -1) {\n  // Extraer desde <!DOCTYPE hasta el final\n  html = agentOutput.substring(htmlStart);\n} else if (htmlStartAlt !== -1) {\n  // Extraer desde <html hasta el final\n  html = agentOutput.substring(htmlStartAlt);\n} else {\n  // No se encontró HTML válido\n  html = `\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Error</title>\n  <style>\n    body { font-family: Arial; padding: 40px; text-align: center; }\n    h1 { color: #CE1126; }\n  </style>\n</head>\n<body>\n  <h1>⚠️ Error al generar el reporte</h1>\n  <p>No se pudo generar el HTML del dashboard.</p>\n  <details>\n    <summary>Ver output del agente</summary>\n    <pre style=\"text-align: left; background: #f5f5f5; padding: 20px;\">${agentOutput}</pre>\n  </details>\n</body>\n</html>\n  `;\n}\n\n// Limpiar posible texto después del </html>\nconst htmlEnd = html.indexOf('</html>');\nif (htmlEnd !== -1) {\n  html = html.substring(0, htmlEnd + 7); // +7 para incluir </html>\n}\n\nreturn [\n  {\n    json: {\n      html: html\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        -112
+      ],
+      "id": "0be1cacc-683a-4dbf-b832-75763a93aa03",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.html }}"
+      },
+      "id": "04a6de53-22b4-416d-b82f-3959f177d719",
+      "name": "HTML1",
+      "type": "n8n-nodes-base.html",
+      "position": [
+        1584,
+        -112
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "3a742ac5-fc4f-4fc7-8368-212b061d6838",
+      "name": "Google Gemini Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        400,
+        -144
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un Analista Senior de Políticas Públicas y Datos Territoriales de Colombia.\n\nENTRADA QUE RECIBES:\nUn objeto JSON con filtros seleccionados y datos filtrados de la base de datos.\n\nTU MISIÓN:\nGenerar un INFORME CONTEXTUALIZADO que combine:\n1. Análisis de los datos locales filtrados\n2. Comparativos con estadísticas nacionales/regionales de fuentes oficiales\n3. Contexto socio-económico relevante\n\nPROCESO DE ANÁLISIS:\n\nPASO 1: Analizar Datos Locales\n- Recibe los datos ya filtrados y procesados\n- Identifica patrones clave:\n  * Departamentos con mayor representación\n  * Distribución de género\n  * Niveles educativos predominantes\n  * Situación laboral predominante\n  * Niveles de ingreso más comunes\n\nPASO 2: Investigación Contextual con Tavily\nUsa la herramienta Tavily para buscar información actualizada sobre:\n\nA) Búsqueda 1 - Contexto Demográfico:\n   Query: \"población [DEPARTAMENTO_PRINCIPAL] Colombia 2024 estadísticas DANE\"\n   Objetivo: Obtener datos poblacionales oficiales\n\nB) Búsqueda 2 - Contexto Educativo:\n   Query: \"cobertura educación superior Colombia [DEPARTAMENTOS] 2024\"\n   Objetivo: Comparar niveles educativos locales vs nacionales\n\nC) Búsqueda 3 - Contexto Laboral:\n   Query: \"tasa empleo desempleo [DEPARTAMENTOS] Colombia 2024 DANE\"\n   Objetivo: Contextualizar situación ocupacional\n\nD) Búsqueda 4 - Contexto Económico:\n   Query: \"salarios ingresos promedio [DEPARTAMENTOS] Colombia 2024\"\n   Objetivo: Comparar niveles de ingreso\n\nIMPORTANTE: Realiza búsquedas específicas para los departamentos con mayor presencia en los datos filtrados.\n\nPASO 3: Análisis Comparativo\n- Compara datos locales (de la base de datos) con estadísticas nacionales (de Tavily)\n- Identifica brechas, similitudes y diferencias significativas\n- Genera insights accionables\n\nPASO 4: Generar Informe HTML\n\nCrea la PRIMERA PARTE del dashboard: UN INFORME EJECUTIVO en HTML con este diseño:\n\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Informe DANE - Análisis Territorial</title>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Georgia', 'Times New Roman', serif;\n            background: #f8f9fa;\n            padding: 40px 20px;\n            line-height: 1.8;\n            color: #2c3e50;\n        }\n        \n        .report-container {\n            max-width: 900px;\n            margin: 0 auto;\n            background: white;\n            padding: 60px;\n            box-shadow: 0 0 40px rgba(0,0,0,0.1);\n            border-top: 8px solid #003893;\n        }\n        \n        /* Header del Informe */\n        .report-header {\n            text-align: center;\n            border-bottom: 3px solid #003893;\n            padding-bottom: 30px;\n            margin-bottom: 40px;\n        }\n        \n        .report-header .logo {\n            font-size: 48px;\n            margin-bottom: 10px;\n        }\n        \n        .report-header h1 {\n            font-size: 32px;\n            color: #003893;\n            margin-bottom: 10px;\n            font-weight: bold;\n        }\n        \n        .report-header .subtitle {\n            font-size: 18px;\n            color: #6c757d;\n            font-style: italic;\n        }\n        \n        .report-header .metadata {\n            margin-top: 20px;\n            font-size: 14px;\n            color: #6c757d;\n        }\n        \n        /* Resumen Ejecutivo */\n        .executive-summary {\n            background: linear-gradient(135deg, #EBF4FF 0%, #FFF9E6 100%);\n            padding: 30px;\n            border-radius: 12px;\n            margin-bottom: 40px;\n            border-left: 5px solid #FCD116;\n        }\n        \n        .executive-summary h2 {\n            color: #003893;\n            font-size: 24px;\n            margin-bottom: 20px;\n            display: flex;\n            align-items: center;\n            gap: 10px;\n        }\n        \n        .executive-summary p {\n            font-size: 16px;\n            margin-bottom: 15px;\n            text-align: justify;\n        }\n        \n        /* Secciones del informe */\n        .section {\n            margin-bottom: 50px;\n        }\n        \n        .section h2 {\n            color: #003893;\n            font-size: 26px;\n            margin-bottom: 20px;\n            padding-bottom: 10px;\n            border-bottom: 2px solid #e9ecef;\n        }\n        \n        .section h3 {\n            color: #CE1126;\n            font-size: 20px;\n            margin-top: 25px;\n            margin-bottom: 15px;\n        }\n        \n        .section p {\n            font-size: 16px;\n            margin-bottom: 15px;\n            text-align: justify;\n        }\n        \n        /* Cajas de estadísticas destacadas */\n        .stat-box {\n            background: white;\n            border-left: 4px solid #003893;\n            padding: 20px;\n            margin: 20px 0;\n            box-shadow: 0 2px 8px rgba(0,0,0,0.08);\n            border-radius: 8px;\n        }\n        \n        .stat-box h4 {\n            color: #003893;\n            font-size: 18px;\n            margin-bottom: 10px;\n        }\n        \n        .stat-box .stat-number {\n            font-size: 36px;\n            font-weight: bold;\n            color: #CE1126;\n            margin: 10px 0;\n        }\n        \n        .stat-box .stat-label {\n            color: #6c757d;\n            font-size: 14px;\n        }\n        \n        /* Comparativa */\n        .comparison-grid {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 20px;\n            margin: 25px 0;\n        }\n        \n        .comparison-card {\n            background: #f8f9fa;\n            padding: 20px;\n            border-radius: 8px;\n            border-top: 3px solid #FCD116;\n        }\n        \n        .comparison-card h4 {\n            color: #003893;\n            margin-bottom: 10px;\n            font-size: 16px;\n        }\n        \n        .comparison-card .value {\n            font-size: 28px;\n            font-weight: bold;\n            color: #2c3e50;\n            margin-bottom: 5px;\n        }\n        \n        .comparison-card .label {\n            color: #6c757d;\n            font-size: 13px;\n        }\n        \n        /* Lista con bullets personalizados */\n        .custom-list {\n            list-style: none;\n            padding-left: 0;\n        }\n        \n        .custom-list li {\n            padding-left: 30px;\n            margin-bottom: 12px;\n            position: relative;\n        }\n        \n        .custom-list li:before {\n            content: \"▸\";\n            color: #003893;\n            font-size: 20px;\n            position: absolute;\n            left: 0;\n        }\n        \n        /* Highlight boxes */\n        .highlight-box {\n            background: #fff3cd;\n            border-left: 4px solid #ffc107;\n            padding: 20px;\n            margin: 25px 0;\n            border-radius: 8px;\n        }\n        \n        .highlight-box h4 {\n            color: #856404;\n            margin-bottom: 10px;\n        }\n        \n        /* Fuentes y referencias */\n        .sources {\n            margin-top: 50px;\n            padding-top: 30px;\n            border-top: 2px solid #e9ecef;\n        }\n        \n        .sources h3 {\n            color: #003893;\n            font-size: 20px;\n            margin-bottom: 15px;\n        }\n        \n        .sources ul {\n            font-size: 14px;\n            color: #6c757d;\n            line-height: 1.6;\n        }\n        \n        .sources li {\n            margin-bottom: 8px;\n        }\n        \n        /* Footer */\n        .report-footer {\n            text-align: center;\n            margin-top: 50px;\n            padding-top: 30px;\n            border-top: 3px solid #003893;\n            color: #6c757d;\n            font-size: 14px;\n        }\n        \n        /* Responsive */\n        @media (max-width: 768px) {\n            .report-container {\n                padding: 30px 20px;\n            }\n            .comparison-grid {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n</head>\n<body>\n    <div class=\"report-container\">\n        <!-- Header -->\n        <div class=\"report-header\">\n            <div class=\"logo\">🇨🇴</div>\n            <h1>Informe de Análisis Territorial</h1>\n            <div class=\"subtitle\">Estudio de Microdatos Poblacionales y Contexto Socio-Económico</div>\n            <div class=\"metadata\">\n                <strong>Fecha de Generación:</strong> [FECHA_ACTUAL]<br>\n                <strong>Ámbito Geográfico:</strong> [DEPARTAMENTOS_ANALIZADOS]<br>\n                <strong>Muestra Analizada:</strong> [TOTAL_REGISTROS] registros\n            </div>\n        </div>\n\n        <!-- Resumen Ejecutivo -->\n        <div class=\"executive-summary\">\n            <h2>📋 Resumen Ejecutivo</h2>\n            <p>[RESUMEN_PRINCIPAL]</p>\n            <p>[HALLAZGO_CLAVE_1]</p>\n            <p>[HALLAZGO_CLAVE_2]</p>\n        </div>\n\n        <!-- Sección 1: Perfil Demográfico -->\n        <div class=\"section\">\n            <h2>1. Perfil Demográfico de la Muestra</h2>\n            \n            <p>[DESCRIPCION_PERFIL_DEMOGRAFICO]</p>\n            \n            <div class=\"stat-box\">\n                <h4>Distribución por Género</h4>\n                <div class=\"stat-number\">[PORCENTAJE_GENERO_PRINCIPAL]%</div>\n                <div class=\"stat-label\">[DESCRIPCION_GENERO]</div>\n            </div>\n\n            <h3>Distribución Territorial</h3>\n            <p>[ANALISIS_TERRITORIAL]</p>\n            \n            <div class=\"comparison-grid\">\n                <div class=\"comparison-card\">\n                    <h4>Departamento Principal</h4>\n                    <div class=\"value\">[DEPT_PRINCIPAL]</div>\n                    <div class=\"label\">[PORCENTAJE_DEPT]% de la muestra</div>\n                </div>\n                <div class=\"comparison-card\">\n                    <h4>Población Regional (2024)</h4>\n                    <div class=\"value\">[POBLACION_OFICIAL]</div>\n                    <div class=\"label\">Según DANE</div>\n                </div>\n            </div>\n        </div>\n\n        <!-- Sección 2: Análisis Educativo -->\n        <div class=\"section\">\n            <h2>2. Nivel Educativo y Formación</h2>\n            \n            <p>[ANALISIS_EDUCATIVO_LOCAL]</p>\n            \n            <div class=\"highlight-box\">\n                <h4>🎓 Hallazgo Destacado</h4>\n                <p>[HALLAZGO_EDUCATIVO_CLAVE]</p>\n            </div>\n\n            <h3>Comparativa Nacional</h3>\n            <p>[COMPARATIVA_EDUCACION_NACIONAL]</p>\n            \n            <ul class=\"custom-list\">\n                <li>[INSIGHT_EDUCATIVO_1]</li>\n                <li>[INSIGHT_EDUCATIVO_2]</li>\n                <li>[INSIGHT_EDUCATIVO_3]</li>\n            </ul>\n        </div>\n\n        <!-- Sección 3: Situación Laboral -->\n        <div class=\"section\">\n            <h2>3. Situación Ocupacional</h2>\n            \n            <p>[ANALISIS_OCUPACIONAL]</p>\n            \n            <div class=\"stat-box\">\n                <h4>Ocupación Predominante</h4>\n                <div class=\"stat-number\">[OCUPACION_PRINCIPAL]</div>\n                <div class=\"stat-label\">[PORCENTAJE_OCUPACION]% de los registros</div>\n            </div>\n\n            <h3>Contexto Regional del Empleo</h3>\n            <p>[CONTEXTO_EMPLEO_REGIONAL]</p>\n            \n            <div class=\"comparison-grid\">\n                <div class=\"comparison-card\">\n                    <h4>Tasa de Empleo Local</h4>\n                    <div class=\"value\">[TASA_EMPLEO_LOCAL]%</div>\n                    <div class=\"label\">En la muestra</div>\n                </div>\n                <div class=\"comparison-card\">\n                    <h4>Tasa de Empleo Regional</h4>\n                    <div class=\"value\">[TASA_EMPLEO_OFICIAL]%</div>\n                    <div class=\"label\">Según DANE 2024</div>\n                </div>\n            </div>\n        </div>\n\n        <!-- Sección 4: Análisis Económico -->\n        <div class=\"section\">\n            <h2>4. Perfil de Ingresos</h2>\n            \n            <p>[ANALISIS_INGRESOS]</p>\n            \n            <div class=\"highlight-box\">\n                <h4>💰 Situación Económica</h4>\n                <p>[INSIGHT_ECONOMICO_PRINCIPAL]</p>\n            </div>\n\n            <h3>Comparativa Salarial</h3>\n            <p>[COMPARATIVA_INGRESOS_NACIONAL]</p>\n        </div>\n\n        <!-- Sección 5: Conclusiones y Recomendaciones -->\n        <div class=\"section\">\n            <h2>5. Conclusiones y Recomendaciones</h2>\n            \n            <h3>Principales Hallazgos</h3>\n            <ul class=\"custom-list\">\n                <li>[CONCLUSION_1]</li>\n                <li>[CONCLUSION_2]</li>\n                <li>[CONCLUSION_3]</li>\n            </ul>\n\n            <h3>Recomendaciones de Política Pública</h3>\n            <ul class=\"custom-list\">\n                <li>[RECOMENDACION_1]</li>\n                <li>[RECOMENDACION_2]</li>\n                <li>[RECOMENDACION_3]</li>\n            </ul>\n        </div>\n\n        <!-- Fuentes -->\n        <div class=\"sources\">\n            <h3>📚 Fuentes Consultadas</h3>\n            <ul>\n                <li>Base de datos interna: [TOTAL_REGISTROS] registros filtrados</li>\n                [FUENTES_TAVILY]\n            </ul>\n        </div>\n\n        <!-- Footer -->\n        <div class=\"report-footer\">\n            <p><strong>Informe Generado por Sistema de Análisis Territorial DANE</strong></p>\n            <p>Análisis basado en microdatos y fuentes oficiales actualizadas</p>\n        </div>\n    </div>\n</body>\n</html>\n\nINSTRUCCIONES PARA GENERAR EL INFORME:\n\n1. ANALIZA los datos filtrados que recibes\n2. USA TAVILY para buscar contexto actualizado (4-6 búsquedas específicas)\n3. COMPARA datos locales vs estadísticas oficiales\n4. GENERA insights significativos y recomendaciones\n5. REEMPLAZA TODOS los placeholders [TEXTO] con contenido real\n6. CITA las fuentes de Tavily en la sección de fuentes\n\nPLACEHOLDERS A REEMPLAZAR:\n- [FECHA_ACTUAL]: Formato \"30 de Noviembre de 2024\"\n- [DEPARTAMENTOS_ANALIZADOS]: Lista de departamentos filtrados\n- [TOTAL_REGISTROS]: Número de registros en la muestra\n- [RESUMEN_PRINCIPAL]: 2-3 oraciones sobre el hallazgo principal\n- [HALLAZGO_CLAVE_X]: Insights importantes\n- [DESCRIPCION_PERFIL_DEMOGRAFICO]: Análisis demográfico\n- [PORCENTAJE_GENERO_PRINCIPAL]: Mayor porcentaje de género\n- [ANALISIS_TERRITORIAL]: Análisis de distribución geográfica\n- [DEPT_PRINCIPAL]: Departamento con más registros\n- [POBLACION_OFICIAL]: Población oficial del DANE (de Tavily)\n- [ANALISIS_EDUCATIVO_LOCAL]: Análisis educativo de la muestra\n- [HALLAZGO_EDUCATIVO_CLAVE]: Insight educativo principal\n- [COMPARATIVA_EDUCACION_NACIONAL]: Comparación con datos nacionales\n- [INSIGHT_EDUCATIVO_X]: Insights específicos\n- [ANALISIS_OCUPACIONAL]: Análisis de ocupación\n- [OCUPACION_PRINCIPAL]: Ocupación más frecuente\n- [CONTEXTO_EMPLEO_REGIONAL]: Contexto laboral (de Tavily)\n- [TASA_EMPLEO_LOCAL]: Calculada de la muestra\n- [TASA_EMPLEO_OFICIAL]: De fuentes oficiales (Tavily)\n- [ANALISIS_INGRESOS]: Análisis de ingresos de la muestra\n- [COMPARATIVA_INGRESOS_NACIONAL]: Comparación con datos nacionales\n- [CONCLUSION_X]: Conclusiones principales\n- [RECOMENDACION_X]: Recomendaciones de política\n- [FUENTES_TAVILY]: Lista de fuentes consultadas con Tavily\n\nESTILO DE ESCRITURA:\n- Tono: Profesional, académico pero accesible\n- Longitud: Cada párrafo 3-5 oraciones bien desarrolladas\n- Insights: Basados en DATOS REALES, no especulación\n- Comparaciones: Siempre con fuentes citadas\n- Recomendaciones: Específicas y accionables\n\nVALIDACIONES:\n1. NO inventes estadísticas - usa solo datos reales de Tavily\n2. SI Tavily no encuentra datos: indica \"Datos no disponibles\"\n3. SIEMPRE cita las fuentes en la sección correspondiente\n4. Prioriza fuentes oficiales (DANE, MinEducación, MinTrabajo)\n\nSALIDA FINAL:\nÚNICAMENTE el HTML completo. Sin explicaciones, sin markdown, sin bloques de código.",
+        "options": {}
+      },
+      "id": "a0a67b40-f6de-4402-a514-73aa0ff95d48",
+      "name": "Agente 1: Analista e Investigador",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        480,
+        -368
+      ],
+      "typeVersion": 1.8,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un Especialista en Visualización de Datos y Estadística Descriptiva.\n\nENTRADA QUE RECIBES:\n- Datos filtrados de la base de datos\n- Filtros aplicados por el usuario\n\nTU MISIÓN:\nGenerar un DASHBOARD VISUAL interactivo con gráficas y estadísticas descriptivas.\n\nPROCESO DE ANÁLISIS:\n\nPASO 1: Obtener Datos\n- Usa la herramienta \"Get row(s) in Data table\" para obtener TODOS los registros\n- Filtra manualmente según los criterios recibidos\n\nPASO 2: Análisis Estadístico Detallado\n\nCalcula las siguientes métricas:\n\nA) KPIs Principales (4 tarjetas):\n1. Total de registros filtrados\n2. Porcentaje de Mujeres (usa Calculator)\n3. Porcentaje de Hombres (usa Calculator)\n4. Nivel educativo predominante\n\nB) Top 5 Departamentos:\n- Agrupar por departamento\n- Contar registros\n- Calcular porcentajes\n\nC) Distribución por Nivel de Estudio:\n- Agrupar y contar\n- Ordenar de mayor a menor\n\nD) Distribución por Ocupación:\n- Agrupar y contar\n- Preparar para gráfica\n\nE) Distribución por Ingresos:\n- Agrupar y contar\n- Mantener orden lógico (menor a mayor)\n\nF) Distribución por Rango de Edad:\n- Agrupar y contar\n- Útil para análisis adicional\n\nG) Calidad de Datos:\n- Por cada campo calcular completitud\n- Clasificar: high (>=95%), medium (80-94%), low (<80%)\n\nPASO 3: Generar Dashboard HTML\n\nCrea un dashboard HTML COMPLETO y FUNCIONAL con este diseño:\n\n<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Dashboard Estadístico DANE</title>\n    <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;\n            background: linear-gradient(135deg, #EBF4FF 0%, #FFFFFF 50%, #FFF9E6 100%);\n            padding: 24px;\n        }\n        \n        .dashboard-container {\n            max-width: 1400px;\n            margin: 0 auto;\n        }\n        \n        /* Header */\n        .dashboard-header {\n            background: white;\n            border-radius: 16px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.07);\n            padding: 32px;\n            margin-bottom: 24px;\n            border-top: 4px solid #003893;\n        }\n        \n        .dashboard-header h1 {\n            font-size: 36px;\n            color: #003893;\n            margin-bottom: 8px;\n        }\n        \n        .dashboard-header .subtitle {\n            color: #6B7280;\n            font-size: 16px;\n        }\n        \n        /* Filtros aplicados */\n        .filters-section {\n            background: white;\n            border-radius: 16px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.07);\n            padding: 24px;\n            margin-bottom: 24px;\n        }\n        \n        .filters-title {\n            font-size: 20px;\n            font-weight: bold;\n            color: #1F2937;\n            margin-bottom: 16px;\n        }\n        \n        .filters-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 16px;\n        }\n        \n        .filter-group {\n            background: #EBF5FF;\n            border: 1px solid #BFDBFE;\n            border-radius: 12px;\n            padding: 16px;\n        }\n        \n        .filter-label {\n            font-weight: 600;\n            color: #003893;\n            font-size: 14px;\n            margin-bottom: 8px;\n        }\n        \n        .filter-values {\n            display: flex;\n            flex-wrap: wrap;\n            gap: 8px;\n        }\n        \n        .filter-badge {\n            background: white;\n            border: 1px solid #DBEAFE;\n            padding: 4px 12px;\n            border-radius: 16px;\n            font-size: 12px;\n            color: #374151;\n        }\n        \n        /* KPI Cards */\n        .kpi-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n            gap: 24px;\n            margin-bottom: 24px;\n        }\n        \n        .kpi-card {\n            background: white;\n            border-radius: 12px;\n            padding: 24px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.07);\n            border-left: 4px solid #003893;\n            transition: all 0.3s ease;\n        }\n        \n        .kpi-card:hover {\n            transform: translateY(-4px);\n            box-shadow: 0 12px 24px rgba(0,0,0,0.12);\n        }\n        \n        .kpi-icon {\n            width: 48px;\n            height: 48px;\n            background: #EBF5FF;\n            border-radius: 12px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 24px;\n            margin-bottom: 12px;\n        }\n        \n        .kpi-title {\n            color: #6B7280;\n            font-size: 14px;\n            font-weight: 500;\n            margin-bottom: 8px;\n        }\n        \n        .kpi-value {\n            font-size: 36px;\n            font-weight: bold;\n            color: #1F2937;\n        }\n        \n        .kpi-suffix {\n            font-size: 20px;\n            color: #6B7280;\n            margin-left: 4px;\n        }\n        \n        /* Charts Grid */\n        .charts-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));\n            gap: 24px;\n            margin-bottom: 24px;\n        }\n        \n        .chart-card {\n            background: white;\n            border-radius: 16px;\n            padding: 24px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.07);\n        }\n        \n        .chart-title {\n            font-size: 18px;\n            font-weight: bold;\n            color: #1F2937;\n            margin-bottom: 20px;\n        }\n        \n        .chart-container {\n            height: 320px;\n            position: relative;\n        }\n        \n        /* Tabla de calidad */\n        .quality-section {\n            background: white;\n            border-radius: 16px;\n            padding: 24px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.07);\n            margin-bottom: 24px;\n        }\n        \n        .quality-table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 16px;\n        }\n        \n        .quality-table thead {\n            background: #003893;\n            color: white;\n        }\n        \n        .quality-table th {\n            padding: 12px 16px;\n            text-align: left;\n            font-weight: 600;\n            font-size: 14px;\n        }\n        \n        .quality-table td {\n            padding: 12px 16px;\n            border-bottom: 1px solid #E5E7EB;\n            font-size: 14px;\n        }\n        \n        .quality-table tr:hover {\n            background: #F9FAFB;\n        }\n        \n        .quality-badge {\n            display: inline-flex;\n            align-items: center;\n            gap: 4px;\n            padding: 4px 12px;\n            border-radius: 16px;\n            font-size: 12px;\n            font-weight: 600;\n        }\n        \n        .quality-high {\n            background: #D1FAE5;\n            color: #065F46;\n        }\n        \n        .quality-medium {\n            background: #FEF3C7;\n            color: #92400E;\n        }\n        \n        .quality-low {\n            background: #FEE2E2;\n            color: #991B1B;\n        }\n        \n        .progress-bar {\n            width: 100%;\n            height: 8px;\n            background: #E5E7EB;\n            border-radius: 4px;\n            overflow: hidden;\n        }\n        \n        .progress-fill {\n            height: 100%;\n            border-radius: 4px;\n            transition: width 0.3s ease;\n        }\n        \n        .progress-high { background: #10B981; }\n        .progress-medium { background: #F59E0B; }\n        .progress-low { background: #EF4444; }\n        \n        /* Footer */\n        .footer {\n            text-align: center;\n            color: #6B7280;\n            font-size: 14px;\n            margin-top: 32px;\n        }\n        \n        @media (max-width: 768px) {\n            .charts-grid {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n</head>\n<body>\n    <div class=\"dashboard-container\">\n        <!-- Header -->\n        <div class=\"dashboard-header\">\n            <h1>📊 Dashboard Estadístico</h1>\n            <div class=\"subtitle\">Visualización de Datos Territoriales • Generado: [FECHA_ACTUAL]</div>\n        </div>\n\n        <!-- Filtros Aplicados -->\n        <div class=\"filters-section\">\n            <div class=\"filters-title\">🔍 Filtros Aplicados</div>\n            <div class=\"filters-grid\" id=\"filtersContainer\"></div>\n        </div>\n\n        <!-- KPIs -->\n        <div class=\"kpi-grid\">\n            <div class=\"kpi-card\">\n                <div class=\"kpi-icon\">📊</div>\n                <div class=\"kpi-title\">Total Registros</div>\n                <div class=\"kpi-value\" id=\"kpiTotal\">0</div>\n            </div>\n            <div class=\"kpi-card\">\n                <div class=\"kpi-icon\">👩</div>\n                <div class=\"kpi-title\">Mujeres</div>\n                <div class=\"kpi-value\" id=\"kpiMujeres\">0<span class=\"kpi-suffix\">%</span></div>\n            </div>\n            <div class=\"kpi-card\">\n                <div class=\"kpi-icon\">👨</div>\n                <div class=\"kpi-title\">Hombres</div>\n                <div class=\"kpi-value\" id=\"kpiHombres\">0<span class=\"kpi-suffix\">%</span></div>\n            </div>\n            <div class=\"kpi-card\">\n                <div class=\"kpi-icon\">🎓</div>\n                <div class=\"kpi-title\">Nivel Predominante</div>\n                <div class=\"kpi-value\" id=\"kpiEducacion\" style=\"font-size: 20px;\">-</div>\n            </div>\n        </div>\n\n        <!-- Gráficos -->\n        <div class=\"charts-grid\">\n            <div class=\"chart-card\">\n                <div class=\"chart-title\">📍 Top 5 Departamentos</div>\n                <div class=\"chart-container\">\n                    <canvas id=\"chartDepartamentos\"></canvas>\n                </div>\n            </div>\n            <div class=\"chart-card\">\n                <div class=\"chart-title\">🎓 Distribución por Educación</div>\n                <div class=\"chart-container\">\n                    <canvas id=\"chartEducacion\"></canvas>\n                </div>\n            </div>\n            <div class=\"chart-card\">\n                <div class=\"chart-title\">💼 Distribución por Ocupación</div>\n                <div class=\"chart-container\">\n                    <canvas id=\"chartOcupacion\"></canvas>\n                </div>\n            </div>\n            <div class=\"chart-card\">\n                <div class=\"chart-title\">💰 Distribución de Ingresos</div>\n                <div class=\"chart-container\">\n                    <canvas id=\"chartIngresos\"></canvas>\n                </div>\n            </div>\n        </div>\n\n        <!-- Tabla de Calidad -->\n        <div class=\"quality-section\">\n            <div class=\"chart-title\">✅ Calidad de Datos</div>\n            <table class=\"quality-table\">\n                <thead>\n                    <tr>\n                        <th>Campo</th>\n                        <th>Completitud</th>\n                        <th>Estado</th>\n                        <th>Progreso</th>\n                    </tr>\n                </thead>\n                <tbody id=\"qualityTableBody\"></tbody>\n            </table>\n        </div>\n\n        <div class=\"footer\">\n            Dashboard Estadístico generado con datos de DANE\n        </div>\n    </div>\n\n    <script>\n        // DATOS - Reemplazar con valores reales calculados\n        const dashboardData = {\n            metadata: {\n                generatedDate: \"[FECHA_ACTUAL]\",\n                appliedFilters: {\n                    departamento: [FILTROS_DEPARTAMENTO],\n                    sexo: [FILTROS_SEXO],\n                    nivel_estudio: [FILTROS_NIVEL_ESTUDIO],\n                    rango_edad: [FILTROS_RANGO_EDAD],\n                    percepcion_calidad_vida: [FILTROS_PERCEPCION],\n                    ocupacion: [FILTROS_OCUPACION],\n                    ingresos_mensuales: [FILTROS_INGRESOS]\n                }\n            },\n            kpis: {\n                total: [KPI_TOTAL],\n                porcentajeMujeres: [KPI_MUJERES],\n                porcentajeHombres: [KPI_HOMBRES],\n                nivelPredominante: \"[KPI_NIVEL_EDUCATIVO]\"\n            },\n            topDepartamentos: [TOP_5_DEPARTAMENTOS],\n            distribucionEducacion: {\n                labels: [LABELS_EDUCACION],\n                values: [VALUES_EDUCACION]\n            },\n            distribucionOcupacion: {\n                labels: [LABELS_OCUPACION],\n                values: [VALUES_OCUPACION]\n            },\n            distribucionIngresos: {\n                labels: [LABELS_INGRESOS],\n                values: [VALUES_INGRESOS]\n            },\n            calidadDatos: [CALIDAD_DATOS]\n        };\n\n        // Actualizar KPIs\n        document.getElementById('kpiTotal').textContent = dashboardData.kpis.total.toLocaleString('es-CO');\n        document.getElementById('kpiMujeres').innerHTML = dashboardData.kpis.porcentajeMujeres.toFixed(1) + '<span class=\"kpi-suffix\">%</span>';\n        document.getElementById('kpiHombres').innerHTML = dashboardData.kpis.porcentajeHombres.toFixed(1) + '<span class=\"kpi-suffix\">%</span>';\n        document.getElementById('kpiEducacion').textContent = dashboardData.kpis.nivelPredominante;\n\n        // Renderizar filtros\n        const filtersContainer = document.getElementById('filtersContainer');\n        const filterLabels = {\n            departamento: 'Departamentos',\n            sexo: 'Sexo',\n            nivel_estudio: 'Nivel de Estudio',\n            rango_edad: 'Rango de Edad',\n            percepcion_calidad_vida: 'Percepción Calidad de Vida',\n            ocupacion: 'Ocupación',\n            ingresos_mensuales: 'Ingresos Mensuales'\n        };\n        \n        Object.entries(dashboardData.metadata.appliedFilters).forEach(([key, values]) => {\n            if (values && values.length > 0) {\n                const filterGroup = document.createElement('div');\n                filterGroup.className = 'filter-group';\n                \n                const label = document.createElement('div');\n                label.className = 'filter-label';\n                label.textContent = filterLabels[key];\n                filterGroup.appendChild(label);\n                \n                const valuesContainer = document.createElement('div');\n                valuesContainer.className = 'filter-values';\n                \n                values.forEach(value => {\n                    const badge = document.createElement('span');\n                    badge.className = 'filter-badge';\n                    badge.textContent = value;\n                    valuesContainer.appendChild(badge);\n                });\n                \n                filterGroup.appendChild(valuesContainer);\n                filtersContainer.appendChild(filterGroup);\n            }\n        });\n\n        // Renderizar tabla de calidad\n        const tbody = document.getElementById('qualityTableBody');\n        dashboardData.calidadDatos.forEach(item => {\n            const row = tbody.insertRow();\n            \n            const cellCampo = row.insertCell(0);\n            cellCampo.textContent = item.campo;\n            cellCampo.style.fontWeight = '600';\n            \n            const cellCompletitud = row.insertCell(1);\n            cellCompletitud.textContent = item.completitud.toFixed(1) + '%';\n            cellCompletitud.style.fontWeight = 'bold';\n            \n            const cellEstado = row.insertCell(2);\n            const badge = document.createElement('span');\n            badge.className = `quality-badge quality-${item.estado}`;\n            badge.textContent = item.estado === 'high' ? 'Excelente' : \n                               item.estado === 'medium' ? 'Bueno' : 'Regular';\n            cellEstado.appendChild(badge);\n            \n            const cellBarra = row.insertCell(3);\n            const progressBar = document.createElement('div');\n            progressBar.className = 'progress-bar';\n            const progressFill = document.createElement('div');\n            progressFill.className = `progress-fill progress-${item.estado}`;\n            progressFill.style.width = item.completitud + '%';\n            progressBar.appendChild(progressFill);\n            cellBarra.appendChild(progressBar);\n        });\n\n        // Colores\n        const colors = {\n            primary: '#003893',\n            secondary: '#FCD116',\n            accent: '#CE1126',\n            gradient1: '#0052CC',\n            gradient2: '#2684FF'\n        };\n\n        // Gráfico Departamentos\n        new Chart(document.getElementById('chartDepartamentos'), {\n            type: 'bar',\n            data: {\n                labels: dashboardData.topDepartamentos.map(d => d.nombre),\n                datasets: [{\n                    label: 'Registros',\n                    data: dashboardData.topDepartamentos.map(d => d.cantidad),\n                    backgroundColor: colors.primary,\n                    borderRadius: 8\n                }]\n            },\n            options: {\n                responsive: true,\n                maintainAspectRatio: false,\n                plugins: { legend: { display: false } },\n                scales: { y: { beginAtZero: true } }\n            }\n        });\n\n        // Gráfico Educación\n        new Chart(document.getElementById('chartEducacion'), {\n            type: 'doughnut',\n            data: {\n                labels: dashboardData.distribucionEducacion.labels,\n                datasets: [{\n                    data: dashboardData.distribucionEducacion.values,\n                    backgroundColor: [colors.primary, colors.accent, colors.secondary, colors.gradient1, colors.gradient2, '#9CA3AF'],\n                    borderWidth: 3,\n                    borderColor: '#fff'\n                }]\n            },\n            options: {\n                responsive: true,\n                maintainAspectRatio: false,\n                plugins: { legend: { position: 'bottom' } },\n                cutout: '65%'\n            }\n        });\n\n        // Gráfico Ocupación\n        new Chart(document.getElementById('chartOcupacion'), {\n            type: 'polarArea',\n            data: {\n                labels: dashboardData.distribucionOcupacion.labels,\n                datasets: [{\n                    data: dashboardData.distribucionOcupacion.values,\n                    backgroundColor: [\n                        colors.primary + '99',\n                        colors.accent + '99',\n                        colors.secondary + '99',\n                        colors.gradient1 + '99',\n                        colors.gradient2 + '99',\n                        '#9CA3AF99'\n                    ]\n                }]\n            },\n            options: {\n                responsive: true,\n                maintainAspectRatio: false,\n                plugins: { legend: { position: 'bottom' } }\n            }\n        });\n\n        // Gráfico Ingresos\n        new Chart(document.getElementById('chartIngresos'), {\n            type: 'line',\n            data: {\n                labels: dashboardData.distribucionIngresos.labels,\n                datasets: [{\n                    label: 'Registros',\n                    data: dashboardData.distribucionIngresos.values,\n                    borderColor: colors.primary,\n                    backgroundColor: colors.primary + '20',\n                    tension: 0.4,\n                    fill: true,\n                    pointRadius: 6,\n                    pointBackgroundColor: colors.primary,\n                    pointBorderColor: '#fff',\n                    pointBorderWidth: 2\n                }]\n            },\n            options: {\n                responsive: true,\n                maintainAspectRatio: false,\n                plugins: { legend: { display: false } },\n                scales: { y: { beginAtZero: true } }\n            }\n        });\n    </script>\n</body>\n</html>\n\nPLACEHOLDERS A REEMPLAZAR:\n- [FECHA_ACTUAL]: \"30 de Noviembre de 2024\"\n- [FILTROS_*]: Arrays como [\"Antioquia\", \"Cundinamarca\"]\n- [KPI_TOTAL]: Número entero del total de registros\n- [KPI_MUJERES]: Porcentaje con decimales: 52.3\n- [KPI_HOMBRES]: Porcentaje con decimales: 47.7\n- [KPI_NIVEL_EDUCATIVO]: String: \"Universitario\"\n- [TOP_5_DEPARTAMENTOS]: [{nombre: \"Antioquia\", cantidad: 4523, porcentaje: 28.5}, ...]\n- [LABELS_EDUCACION]: [\"Universitario\", \"Técnico\", ...]\n- [VALUES_EDUCACION]: [5234, 3821, ...]\n- [LABELS_OCUPACION]: [\"Empleado\", \"Independiente\", ...]\n- [VALUES_OCUPACION]: [6234, 4123, ...]\n- [LABELS_INGRESOS]: [\"1 SM\", \"1-2 SM\", ...]\n- [VALUES_INGRESOS]: [3456, 5234, ...]\n- [CALIDAD_DATOS]: [{campo: \"Departamento\", completitud: 98.5, estado: \"high\"}, ...]\n\nVALIDACIONES:\n1. Todos los valores deben ser calculados de los datos reales\n2. NO inventes datos\n3. Porcentajes con 1 decimal\n4. Números grandes con separador de miles\n\nSALIDA FINAL:\nÚNICAMENTE el HTML completo. Sin explicaciones, sin markdown.",
+        "options": {}
+      },
+      "id": "47f70ae0-19c2-4951-85b2-9ed1dba8b845",
+      "name": "Agente 2: Estadístico Visual ",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        480,
+        128
+      ],
+      "typeVersion": 1.8,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un Especialista en Preparación de Datos para Power BI.\n\nENTRADA QUE RECIBES:\n- Datos filtrados de la base de datos\n- Filtros aplicados por el usuario\n- Estadísticas básicas pre-calculadas\n\nTU MISIÓN:\nGenerar datasets estructurados en formato JSON optimizados para ser consumidos por Power BI a través de su API de Streaming o Push Datasets.\n\nPROCESO DE PREPARACIÓN:\n\nPASO 1: Obtener y Validar Datos\n- Recibe los datos ya filtrados del nodo anterior\n- Valida la integridad de los datos\n- Identifica campos necesarios para Power BI\n\nPASO 2: Crear Datasets Estructurados\n\nGenera 6 datasets diferentes optimizados para Power BI:\n\nA) DATASET 1: KPIs Principales\nFormato:\n{\n  \"kpi_name\": \"Total_Registros\",\n  \"value\": 15847,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\",\n  \"departamentos_filtrados\": \"Antioquia, Cundinamarca, Valle del Cauca\"\n}\n\nGenera un registro por cada KPI:\n- Total_Registros\n- Porcentaje_Mujeres\n- Porcentaje_Hombres\n- Nivel_Educativo_Predominante\n\nB) DATASET 2: Distribución por Departamento\nFormato:\n{\n  \"departamento\": \"Antioquia\",\n  \"cantidad_registros\": 4523,\n  \"porcentaje\": 28.5,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\",\n  \"ranking\": 1\n}\n\nGenera un registro por cada departamento en los datos filtrados.\nIncluye ranking (1 = mayor cantidad).\n\nC) DATASET 3: Distribución por Nivel Educativo\nFormato:\n{\n  \"nivel_estudio\": \"Universitario\",\n  \"cantidad\": 5234,\n  \"porcentaje\": 33.0,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\"\n}\n\nGenera un registro por cada nivel educativo presente.\n\nD) DATASET 4: Distribución por Ocupación\nFormato:\n{\n  \"ocupacion\": \"Empleado\",\n  \"cantidad\": 6234,\n  \"porcentaje\": 39.3,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\"\n}\n\nGenera un registro por cada tipo de ocupación.\n\nE) DATASET 5: Distribución por Ingresos\nFormato:\n{\n  \"rango_ingresos\": \"Entre 1 y 2 SM\",\n  \"cantidad\": 5234,\n  \"porcentaje\": 33.0,\n  \"orden\": 2,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\"\n}\n\nIncluye campo \"orden\" para mantener secuencia lógica de rangos.\n\nF) DATASET 6: Tabla Resumen Completa (para tablas en Power BI)\nFormato:\n{\n  \"departamento\": \"Antioquia\",\n  \"sexo\": \"F\",\n  \"nivel_estudio\": \"Universitario\",\n  \"rango_edad\": \"18-30\",\n  \"ocupacion\": \"Empleado\",\n  \"ingresos_mensuales\": \"Entre 1 y 2 SM\",\n  \"percepcion_calidad_vida\": \"Buena\",\n  \"cantidad_registros\": 234,\n  \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\"\n}\n\nGenera datos agregados por combinación de dimensiones principales.\nEste dataset permite análisis cruzados en Power BI.\n\nG) DATASET 7: Metadata y Filtros Aplicados\nFormato:\n{\n  \"timestamp\": \"2024-11-30T18:51:11Z\",\n  \"total_registros_originales\": 50000,\n  \"total_registros_filtrados\": 15847,\n  \"filtros_aplicados\": {\n    \"departamento\": [\"Antioquia\", \"Cundinamarca\"],\n    \"sexo\": [\"F\", \"M\"],\n    \"nivel_estudio\": [\"Universitario\", \"Técnico\"]\n  },\n  \"completitud_promedio\": 94.5\n}\n\nPASO 3: Calcular Métricas Adicionales\n\nPara cada dataset, incluye:\n- fecha_actualizacion: Timestamp ISO 8601\n- Porcentajes calculados con 1 decimal\n- Rankings cuando sea relevante\n- Ordenamiento apropiado\n\nPASO 4: Generar Output JSON\n\nEstructura de salida:\n\n{\n  \"success\": true,\n  \"timestamp\": \"2024-11-30T18:51:11.000Z\",\n  \"datasets\": {\n    \"kpis\": [\n      {objeto KPI 1},\n      {objeto KPI 2},\n      ...\n    ],\n    \"departamentos\": [\n      {objeto dept 1},\n      {objeto dept 2},\n      ...\n    ],\n    \"educacion\": [\n      {objeto edu 1},\n      {objeto edu 2},\n      ...\n    ],\n    \"ocupacion\": [\n      {objeto ocup 1},\n      {objeto ocup 2},\n      ...\n    ],\n    \"ingresos\": [\n      {objeto ing 1},\n      {objeto ing 2},\n      ...\n    ],\n    \"resumen_completo\": [\n      {objeto combinado 1},\n      {objeto combinado 2},\n      ...\n    ],\n    \"metadata\": {\n      objeto metadata\n    }\n  },\n  \"powerbi_config\": {\n    \"streaming_endpoint\": \"PLACEHOLDER_FOR_POWERBI_ENDPOINT\",\n    \"dataset_id\": \"PLACEHOLDER_FOR_DATASET_ID\",\n    \"recommended_refresh_rate\": \"real-time\"\n  }\n}\n\nIMPORTANTE PARA POWER BI:\n\n1. TIPOS DE DATOS:\n   - Usar tipos consistentes (número, string, datetime)\n   - Fechas en formato ISO 8601\n   - Números sin símbolos (% se agrega en Power BI)\n\n2. NOMENCLATURA:\n   - Nombres de campos sin espacios\n   - Usar snake_case: nivel_estudio, no \"Nivel de Estudio\"\n   - Consistencia en todos los datasets\n\n3. VALORES NULOS:\n   - Nunca dejar campos undefined\n   - Usar null explícito o valores default\n   - Documentar qué significa cada null\n\n4. OPTIMIZACIÓN:\n   - Dataset KPIs: máximo 10 registros (1 por KPI)\n   - Datasets dimensionales: todos los valores únicos\n   - Resumen completo: agregaciones pre-calculadas\n   - Evitar datasets mayores a 10,000 registros\n\n5. CAMPOS CALCULADOS SUGERIDOS PARA POWER BI:\n   En tus comentarios, sugiere medidas DAX que el usuario podría crear:\n   - Total Registros = SUM(tabla[cantidad_registros])\n   - % Mujeres = DIVIDE([Count Mujeres], [Total Registros])\n   - Tasa de Desempleo = DIVIDE([Count Desempleados], [Total Registros])\n\nVALIDACIONES:\n\n1. ✅ TODOS los registros deben tener fecha_actualizacion\n2. ✅ Los porcentajes deben sumar ~100% (tolerancia ±0.5%)\n3. ✅ NO inventes datos - usa solo datos reales filtrados\n4. ✅ Cantidad de registros debe ser consistente entre datasets\n5. ✅ Rankings deben ser consecutivos (1, 2, 3...)\n6. ✅ Nombres de campos consistentes en todos los datasets\n\nFORMATO DE SALIDA:\n\nÚNICAMENTE el objeto JSON completo. Sin explicaciones, sin markdown, sin bloques de código.\n\nEl JSON debe ser válido y directamente parseable.\n\nEJEMPLO DE ESTRUCTURA (con datos inventados para ilustración):\n\n{\n  \"success\": true,\n  \"timestamp\": \"2024-11-30T18:51:11.000Z\",\n  \"datasets\": {\n    \"kpis\": [\n      {\n        \"kpi_name\": \"Total_Registros\",\n        \"value\": 15847,\n        \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\",\n        \"departamentos_filtrados\": \"Antioquia, Cundinamarca\"\n      },\n      {\n        \"kpi_name\": \"Porcentaje_Mujeres\",\n        \"value\": 52.3,\n        \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\",\n        \"departamentos_filtrados\": \"Antioquia, Cundinamarca\"\n      }\n    ],\n    \"departamentos\": [\n      {\n        \"departamento\": \"Antioquia\",\n        \"cantidad_registros\": 4523,\n        \"porcentaje\": 28.5,\n        \"fecha_actualizacion\": \"2024-11-30T18:51:11Z\",\n        \"ranking\": 1\n      }\n    ],\n    \"educacion\": [...],\n    \"ocupacion\": [...],\n    \"ingresos\": [...],\n    \"resumen_completo\": [...],\n    \"metadata\": {\n      \"timestamp\": \"2024-11-30T18:51:11Z\",\n      \"total_registros_originales\": 50000,\n      \"total_registros_filtrados\": 15847,\n      \"filtros_aplicados\": {...}\n    }\n  },\n  \"powerbi_config\": {\n    \"streaming_endpoint\": \"https://api.powerbi.com/beta/...\",\n    \"dataset_id\": \"PLACEHOLDER\",\n    \"recommended_refresh_rate\": \"real-time\"\n  },\n  \"dax_suggestions\": [\n    \"Total Registros = SUM('KPIs'[value])\",\n    \"% Mujeres = DIVIDE([Count Mujeres], [Total Registros], 0)\",\n    \"Top 3 Departamentos = TOPN(3, 'Departamentos', [cantidad_registros], DESC)\"\n  ]\n}\n\nRECUERDA: La salida debe ser JSON puro, sin ```json, sin explicaciones antes ni después.",
+        "options": {}
+      },
+      "id": "b75e14e6-4847-4a20-8ec7-a2899e8305b0",
+      "name": "3 Agentes + Power BI",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        480,
+        -832
+      ],
+      "typeVersion": 1.8,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e6f17e67-a34f-4178-894f-58d0c47d0424",
+      "name": "Google Gemini Chat Model2",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        432,
+        -608
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "b0b0efd6-ee0c-4c2b-9fa0-e2db51553e16",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "position": [
+        560,
+        -608
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Get row(s) in Data table",
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "R2XeGJq1X5VzEWal",
+          "mode": "id"
+        },
+        "matchType": "allConditions",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        688,
+        -608
+      ],
+      "id": "43c0e2fe-a84d-4832-a77d-2b8355f45873",
+      "name": "Get row(s) in Data table1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1136,
+        -112
+      ],
+      "id": "57d410f9-67ca-4b40-9951-5927b5fabb4b",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "resource": "dataset",
+        "operation": "get"
+      },
+      "type": "n8n-nodes-powerbi.powerBi",
+      "typeVersion": 1,
+      "position": [
+        864,
+        -832
+      ],
+      "id": "4ffd45bd-9a57-42e3-8bbf-4c2f2a25c984",
+      "name": "Get a dataset",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "toolDescription": "Search for information on DANE.gov.co website using Tavily API. Provide a search query and get relevant results from Colombian government statistics.",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"nodes\": [\n    {\n      \"parameters\": {\n        \"toolDescription\": \"Busca estadísticas clave de Colombia (Empleo, Desempleo, Demografía y Población) en el sitio web del DANE (dane.gov.co) y las compara con fuentes estadísticas globales y de Latinoamérica (UN Data - data.un.org).\",\n        \"method\": \"POST\",\n        \"url\": \"https://api.tavily.com/search\",\n        \"sendBody\": true,\n        \"specifyBody\": \"json\",\n        \"jsonBody\": \"{ \\\"api_key\\\": \\\"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\\\", \\\"query\\\": \\\"site:dane.gov.co OR site:data.un.org \\\" + $fromAI('searchQuery', 'El término de búsqueda estadística sobre empleo, población o datos globales', 'string'), \\\"search_depth\\\": \\\"basic\\\", \\\"include_answer\\\": true, \\\"topic\\\": \\\"news\\\", \\\"include_raw_content\\\": true, \\\"max_results\\\": 3 }\",\n        \"options\": {}\n      },\n      \"id\": \"ID_NODO_MULTIESTADISTICO\",\n      \"name\": \"Tavily Search DANE y Global\",\n      \"type\": \"n8n-nodes-base.httpRequestTool\",\n      \"typeVersion\": 4.3,\n      \"position\": [\n        576,\n        344\n      ]\n    }\n  ],\n  \"connections\": {\n    \"Tavily Search DANE y Global\": {\n      \"ai_tool\": [\n        []\n      ]\n    }\n  }\n}",
+        "options": {}
+      },
+      "id": "486f1c3e-a3c9-488e-b913-7077a3afccf2",
+      "name": "Tavily Search DANE",
+      "type": "n8n-nodes-base.httpRequestTool",
+      "typeVersion": 4.3,
+      "position": [
+        576,
+        -144
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "={\n  \"type\": \"object\",\n  \"properties\": {\n    \"name\": { \"type\": \"string\" },\n    \"description\": { \"type\": \"string\" },\n    \"platform_posts\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"LinkedIn\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"image_suggestion\": { \"type\": \"string\" },\n            \"post\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" }\n          },\n          \"required\": [\"post\", \"hashtags\", \"call_to_action\"]\n        },\n        \"Instagram\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"image_suggestion\": { \"type\": \"string\" },\n            \"caption\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"emojis\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" }\n          },\n          \"required\": [\"caption\", \"hashtags\", \"call_to_action\"]\n        },\n        \"Facebook\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"post\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" },\n            \"image_suggestion\": { \"type\": \"string\" }\n          },\n          \"required\": [\"post\", \"hashtags\", \"call_to_action\"]\n        },\n        \"X-Twitter\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"video_suggestion\": { \"type\": \"string\" },\n            \"image_suggestion\": { \"type\": \"string\" },\n            \"post\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"character_limit\": { \"type\": \"integer\" }\n          },\n          \"required\": [\"post\", \"hashtags\", \"character_limit\"]\n        },\n        \"TikTok\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"video_suggestion\": { \"type\": \"string\" },\n            \"caption\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" }\n          },\n          \"required\": [\"caption\", \"hashtags\", \"call_to_action\"]\n        },\n        \"Threads\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"image_suggestion\": { \"type\": \"string\" },\n            \"text_post\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" }\n          },\n          \"required\": [\"text_post\", \"hashtags\", \"call_to_action\"]\n        },\n        \"YouTube_Shorts\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"video_suggestion\": { \"type\": \"string\" },\n            \"title\": { \"type\": \"string\" },\n            \"description\": { \"type\": \"string\" },\n            \"hashtags\": { \"type\": \"array\", \"items\": { \"type\": \"string\" } },\n            \"call_to_action\": { \"type\": \"string\" }\n          },\n          \"required\": [\"title\", \"description\", \"hashtags\", \"call_to_action\"]\n        }\n      }\n    },\n    \"additional_notes\": { \"type\": \"string\" }\n  },\n  \"required\": [\"name\", \"description\", \"platform_posts\"]\n}"
+      },
+      "id": "80aa665e-3e66-425d-b3ea-4f8ef3de0743",
+      "name": "Social Media Content",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "position": [
+        1040,
+        736
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "46dab807-f0c3-463d-a3e8-7107633419d3",
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        2016,
+        1184
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "efe337a1-63e0-4513-873d-421bf41e4868",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fcc388b9-7f74-4862-ae23-a8a8171a53e0",
+      "name": "Is Approved?",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        2016,
+        960
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c6edc76-1e3b-45b0-8baa-33a14c678150",
+              "name": "LinkedIn Post Result",
+              "type": "string",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "59116a32-92f5-45f8-a5ce-770117c61bbd",
+      "name": "LinkedIn Result",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2352,
+        1184
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un **community manager especializado en datos abiertos del DANE** y en comunicación de estadísticas laborales en **español de Latinoamérica**.  \nTu misión es **convertir el análisis laboral oficial** en contenido **claro, atractivo y listo para publicar** en cada red social.\n\n## 📥 Entrada\nTopic: {{ $json.Topic }}  \nResumen: {{ $json.summary }}  \nAlertas: {{ $json.alerts }}  \nPeríodo: {{ $json.periodo_actual }}  \nTerritorio: {{ $json.territorio }}  \nLink (opcional): {{ $json[\"Link (optional)\"] }}\n\n## 🎯 Objetivos\n- Lenguaje **claro, neutro, voz activa**.\n- **Emojis** solo donde se indique.\n- **Hashtags** siempre en español y sin acentos.\n- **Cumplir límites de caracteres** indicados.\n- **Incluir CTA** siempre.\n\n## 📱 Instrucciones por red\n\n**LinkedIn** – 4-5 frases, tono profesional.  \n**Instagram** – Carrusel 3 imágenes; caption ≤ 150 palabras; emojis.  \n**Facebook** – Post ≤ 250 palabras; enlace al PDF.  \n**X-Twitter** – ≤ 150 caracteres + imagen.  \n**TikTok** – Video 15-20 s; caption ≤ 100 caracteres.  \n**Threads** – Texto ≤ 300 caracteres; 3 párrafos cortos.  \n**YouTube Shorts** – Título ≤ 50 caracteres; descripción ≤ 120 caracteres.\n\n## 📦 Salida OBLIGATORIA\nDevuelve **ÚNICAMENTE** el siguiente JSON (sin ```, sin comentarios, sin saltos de línea extras):\n\n{\n  \"name\": \"Análisis laboral {{ $json.territorio }} {{ $json.periodo_actual }}\",\n  \"description\": \"{{ $json.summary }}\",\n  \"platform_posts\": {\n    \"LinkedIn\": {\n      \"image_suggestion\": \"Infografía 1200×627: evolución desempleo + logo DANE\",\n      \"post\": \"🔍 Nuevo análisis laboral de {{ $json.territorio }} ({{ $json.periodo_actual }})\\\\n✅ El desempleo bajó 0,9 puntos porcentuales\\\\n✅ La informalidad alcanzó su mínimo histórico\\\\n✅ Las afiliaciones formales crecieron 5 %\\\\n📊 Accede al informe completo y comparte tu opinión.\",\n      \"hashtags\": [\"#DatosAbiertos\", \"#AnalisisLaboral\", \"#DANE\", \"#Empleo\"],\n      \"call_to_action\": \"👇 ¿Qué dato te sorprendió más? Cuéntanos en comentarios\"\n    },\n    \"Instagram\": {\n      \"image_suggestion\": \"Carrusel 3 diapositivas: (1) tasa de desempleo, (2) informalidad, (3) comparativa nacional\",\n      \"caption\": \"📊 Así va el mercado laboral en {{ $json.territorio }}\\\\n↓ Desempleo -0,9 pp\\\\n↓ Informalidad 52 % (mín. hist.)\\\\n↑ Afiliados +5 %\\\\n💡 Guarda ⚡ y comparte ⤴\",\n      \"hashtags\": [\"#DatosRosal\", \"#Infografía\", \"#EconomíaRegional\"],\n      \"emojis\": [\"📊\", \"📈\", \"📉\", \"💡\"],\n      \"call_to_action\": \"Guarda y comparte\"\n    },\n    \"Facebook\": {\n      \"post\": \"📈 Publicamos el informe laboral de {{ $json.territorio }} correspondiente a {{ $json.periodo_actual }}.\\\\nPrincipales hallazgos:\\\\n• Desempleo: -0,9 pp vs trimestre anterior\\\\n• Informalidad: 52 % (mínimo histórico)\\\\n• Afiliados: +5 % interanual\\\\n🔗 Descarga el PDF en el primer comentario.\",\n      \"hashtags\": [\"#DatosAbiertos\", \"#FacebookLive\", \"#Economía\"],\n      \"call_to_action\": \"Déjanos tu opinión abajo 👇\",\n      \"image_suggestion\": \"Miniatura blog: título + 3 iconos (desempleo, informalidad, afiliados)\"\n    },\n    \"X-Twitter\": {\n      \"video_suggestion\": \"No video – imagen fija\",\n      \"image_suggestion\": \"Tarjeta 1200×675: tasa desempleo + emoji 🔻\",\n      \"post\": \"📉 Desempleo en {{ $json.territorio }} bajó 0,9 pp. Informalidad 52 % (mín. hist.). Afiliados ↑ 5 %. Datos abiertos 👉\",\n      \"hashtags\": [\"#DatosRosal\", \"#Empleo\", \"#DANE\"],\n      \"character_limit\": 150\n    },\n    \"TikTok\": {\n      \"video_suggestion\": \"Video 15-20 s: pantalla dashboard + voz en off leyendo el dato estrella\",\n      \"caption\": \"Así cambió el desempleo en {{ $json.territorio }} 📉📈 #DatosRosal #Paro #Estadísticas\",\n      \"hashtags\": [\"#DatosRosal\", \"#Paro\", \"#Estadísticas\", \"#Economía\"],\n      \"call_to_action\": \"Síguenos para más datos rápidos\"\n    },\n    \"Threads\": {\n      \"image_suggestion\": \"Imagen cuadrada 1080×1080: gráfico línea evolutivo\",\n      \"text_post\": \"📊 Actualización laboral {{ $json.territorio }}\\\\n1️⃣ Desempleo ↓ 0,9 pp\\\\n2️⃣ Informalidad ↓ 52 % (mín. hist.)\\\\n3️⃣ Afiliados ↑ 5 %\\\\n¿Qué te sorprende?\",\n      \"hashtags\": [\"#DatosRosal\", \"#ThreadsES\", \"#Economía\"],\n      \"call_to_action\": \"Responde 👇\"\n    },\n    \"YouTube_Shorts\": {\n      \"video_suggestion\": \"Short 30-35 s: pantalla dividida – izq. gráfico, der. cámara hablando; transición rápida\",\n      \"title\": \"Desempleo BAJA en {{ $json.territorio }} – ¿Qué dice el dato?\",\n      \"description\": \"Análisis rápido del mercado laboral con datos abiertos DANE. Más informes en el canal.\",\n      \"hashtags\": [\"#Shorts\", \"#DatosRosal\", \"#Economía\", \"#DANE\"],\n      \"call_to_action\": \"Suscríbete para más datos en 30 seg\"\n    }\n  },\n  \"additional_notes\": \"{{ $json.alerts | join(', ') }}\"\n}",
+        "options": {}
+      },
+      "id": "3a48e852-9e70-4ff5-95fe-78d36e7bf16c",
+      "name": "Prepare Content Review Email",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1200,
+        560
+      ],
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "e32d270f-f258-4522-94e1-2cb7ee4e8d2a",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ce3eeb0e-5f2a-449d-9259-aac4eb2cb5eb",
+      "name": "Is Content Approved?",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1504,
+        784
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a0455395-610e-41a6-b1a7-74dfd4f1b716",
+      "name": "SerpAPI",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "position": [
+        912,
+        736
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "serpApi": {
+          "id": "y5fjoO1Z1OKTLRGg",
+          "name": "SerpApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "sendTo": "gonxin2012@gmail.com",
+        "subject": "Aprovado",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1488,
+        560
+      ],
+      "id": "b5ea2667-e34d-4377-8da6-ccdb3e3361fe",
+      "name": "Gmail",
+      "webhookId": "7cd5669b-20cc-48e4-9b07-c6663f35048c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "V2y3Jq7xytcdYJ4l",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "person": "XdG4ZZgl6v",
+        "text": "={{ $('Social Media Content Factory').item.json.output.platform_posts.LinkedIn.post }}\n{{ $('Social Media Content Factory').item.json.output.platform_posts.LinkedIn.call_to_action }}\n\n{{ $('Social Media Content Factory').item.json.output.platform_posts.LinkedIn.call_to_action }}{{ $('Social Media Content Factory').item.json.output.platform_posts.LinkedIn.post }}",
+        "shareMediaCategory": "IMAGE",
+        "binaryPropertyName": "=data",
+        "additionalFields": {}
+      },
+      "id": "55c18669-0f35-4157-b925-32ba6a4a693b",
+      "name": "LinkedIn Post",
+      "type": "n8n-nodes-base.linkedIn",
+      "position": [
+        2176,
+        1184
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "2CJH5y0jYLtOhYS9",
+          "name": "LinkedIn account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Social Media Content Factory').item.json.output.platform_posts['X-Twitter'].post }}",
+        "additionalFields": {}
+      },
+      "id": "3cd2432a-0939-4b0c-a20a-68759075246e",
+      "name": "X Post",
+      "type": "n8n-nodes-base.twitter",
+      "position": [
+        2240,
+        752
+      ],
+      "typeVersion": 2,
+      "alwaysOutputData": true,
+      "disabled": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5c6edc76-1e3b-45b0-8baa-33a14c678150",
+              "name": "X Post Result",
+              "type": "string",
+              "value": "={{ $json }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28587909-cadd-484a-b98d-03f93ad74fa6",
+      "name": "X Result",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2416,
+        752
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $('Prepare Content Review Email').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        1696,
+        768
+      ],
+      "id": "456c6f80-bfe4-4054-8ae8-fd940881ae81",
+      "name": "Generate an image1",
+      "credentials": {
+        "openAiApi": {
+          "id": "POBm9xfrfNqm4t76",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f150aa79-2d20-4869-b60a-350d49a215a5",
+              "name": "data",
+              "type": "object",
+              "value": "={\n  \"approved\": true\n}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5a399bc1-7136-4f6e-b000-7c456e400271",
+      "name": "Set Default True 2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        2016,
+        752
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un **community manager especializado en datos abiertos del DANE** y en comunicación de estadísticas laborales en **español de Latinoamérica**.  \nTu misión es **convertir el análisis laboral oficial** en contenido **claro, atractivo y listo para publicar** en cada red social.\n\n## 📥 Entrada\nTopic: {{ $json.Topic }}  \nResumen: {{ $json.summary }}  \nAlertas: {{ $json.alerts }}  \nPeríodo: {{ $json.periodo_actual }}  \nTerritorio: {{ $json.territorio }}  \nLink (opcional): {{ $json[\"Link (optional)\"] }}\n\n## 🎯 Objetivos\n- Lenguaje **claro, neutro, voz activa**.\n- **Emojis** solo donde se indique.\n- **Hashtags** siempre en español y sin acentos.\n- **Cumplir límites de caracteres** indicados.\n- **Incluir CTA** siempre.\n\n## 📱 Instrucciones por red\n\n**LinkedIn** – 4-5 frases, tono profesional.  \n**Instagram** – Carrusel 3 imágenes; caption ≤ 150 palabras; emojis.  \n**Facebook** – Post ≤ 250 palabras; enlace al PDF.  \n**X-Twitter** – ≤ 150 caracteres + imagen.  \n**TikTok** – Video 15-20 s; caption ≤ 100 caracteres.  \n**Threads** – Texto ≤ 300 caracteres; 3 párrafos cortos.  \n**YouTube Shorts** – Título ≤ 50 caracteres; descripción ≤ 120 caracteres.\n\n## 📦 Salida OBLIGATORIA\nDevuelve **ÚNICAMENTE** el siguiente JSON (sin ```, sin comentarios, sin saltos de línea extras):\n\n{\n  \"name\": \"Análisis laboral {{ $json.territorio }} {{ $json.periodo_actual }}\",\n  \"description\": \"{{ $json.summary }}\",\n  \"platform_posts\": {\n    \"LinkedIn\": {\n      \"image_suggestion\": \"Infografía 1200×627: evolución desempleo + logo DANE\",\n      \"post\": \"🔍 Nuevo análisis laboral de {{ $json.territorio }} ({{ $json.periodo_actual }})\\\\n✅ El desempleo bajó 0,9 puntos porcentuales\\\\n✅ La informalidad alcanzó su mínimo histórico\\\\n✅ Las afiliaciones formales crecieron 5 %\\\\n📊 Accede al informe completo y comparte tu opinión.\",\n      \"hashtags\": [\"#DatosAbiertos\", \"#AnalisisLaboral\", \"#DANE\", \"#Empleo\"],\n      \"call_to_action\": \"👇 ¿Qué dato te sorprendió más? Cuéntanos en comentarios\"\n    },\n    \"Instagram\": {\n      \"image_suggestion\": \"Carrusel 3 diapositivas: (1) tasa de desempleo, (2) informalidad, (3) comparativa nacional\",\n      \"caption\": \"📊 Así va el mercado laboral en {{ $json.territorio }}\\\\n↓ Desempleo -0,9 pp\\\\n↓ Informalidad 52 % (mín. hist.)\\\\n↑ Afiliados +5 %\\\\n💡 Guarda ⚡ y comparte ⤴\",\n      \"hashtags\": [\"#DatosRosal\", \"#Infografía\", \"#EconomíaRegional\"],\n      \"emojis\": [\"📊\", \"📈\", \"📉\", \"💡\"],\n      \"call_to_action\": \"Guarda y comparte\"\n    },\n    \"Facebook\": {\n      \"post\": \"📈 Publicamos el informe laboral de {{ $json.territorio }} correspondiente a {{ $json.periodo_actual }}.\\\\nPrincipales hallazgos:\\\\n• Desempleo: -0,9 pp vs trimestre anterior\\\\n• Informalidad: 52 % (mínimo histórico)\\\\n• Afiliados: +5 % interanual\\\\n🔗 Descarga el PDF en el primer comentario.\",\n      \"hashtags\": [\"#DatosAbiertos\", \"#FacebookLive\", \"#Economía\"],\n      \"call_to_action\": \"Déjanos tu opinión abajo 👇\",\n      \"image_suggestion\": \"Miniatura blog: título + 3 iconos (desempleo, informalidad, afiliados)\"\n    },\n    \"X-Twitter\": {\n      \"video_suggestion\": \"No video – imagen fija\",\n      \"image_suggestion\": \"Tarjeta 1200×675: tasa desempleo + emoji 🔻\",\n      \"post\": \"📉 Desempleo en {{ $json.territorio }} bajó 0,9 pp. Informalidad 52 % (mín. hist.). Afiliados ↑ 5 %. Datos abiertos 👉\",\n      \"hashtags\": [\"#DatosRosal\", \"#Empleo\", \"#DANE\"],\n      \"character_limit\": 150\n    },\n    \"TikTok\": {\n      \"video_suggestion\": \"Video 15-20 s: pantalla dashboard + voz en off leyendo el dato estrella\",\n      \"caption\": \"Así cambió el desempleo en {{ $json.territorio }} 📉📈 #DatosRosal #Paro #Estadísticas\",\n      \"hashtags\": [\"#DatosRosal\", \"#Paro\", \"#Estadísticas\", \"#Economía\"],\n      \"call_to_action\": \"Síguenos para más datos rápidos\"\n    },\n    \"Threads\": {\n      \"image_suggestion\": \"Imagen cuadrada 1080×1080: gráfico línea evolutivo\",\n      \"text_post\": \"📊 Actualización laboral {{ $json.territorio }}\\\\n1️⃣ Desempleo ↓ 0,9 pp\\\\n2️⃣ Informalidad ↓ 52 % (mín. hist.)\\\\n3️⃣ Afiliados ↑ 5 %\\\\n¿Qué te sorprende?\",\n      \"hashtags\": [\"#DatosRosal\", \"#ThreadsES\", \"#Economía\"],\n      \"call_to_action\": \"Responde 👇\"\n    },\n    \"YouTube_Shorts\": {\n      \"video_suggestion\": \"Short 30-35 s: pantalla dividida – izq. gráfico, der. cámara hablando; transición rápida\",\n      \"title\": \"Desempleo BAJA en {{ $json.territorio }} – ¿Qué dice el dato?\",\n      \"description\": \"Análisis rápido del mercado laboral con datos abiertos DANE. Más informes en el canal.\",\n      \"hashtags\": [\"#Shorts\", \"#DatosRosal\", \"#Economía\", \"#DANE\"],\n      \"call_to_action\": \"Suscríbete para más datos en 30 seg\"\n    }\n  },\n  \"additional_notes\": \"{{ $json.alerts | join(', ') }}\"\n}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "={{ $json.text }}"
+        }
+      },
+      "id": "bf00e84e-5155-4c2b-acd6-290328f6558a",
+      "name": "Social Media Sub-flow",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        896,
+        560
+      ],
+      "retryOnFail": true,
+      "typeVersion": 1.7
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "caaf1fdb-14e3-45ea-826f-332c868795f3",
+              "name": "text",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        752,
+        560
+      ],
+      "id": "309c2bb7-bf2c-414d-9928-eeb5a057f077",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un Community Manager especializado en comunicación de datos gubernamentales y storytelling con cifras.\n\nRecibes el análisis completo del mercado laboral.\n\nTU MISIÓN:\nGenerar contenido optimizado para Twitter, LinkedIn, Instagram y Facebook.\n\nDEVUELVE ESTE JSON:\n\n{\n  \"twitter\": [\n    {\n      \"id\": 1,\n      \"tipo\": \"hilo\",\n      \"tweets\": [\n        {\n          \"numero\": 1,\n          \"texto\": \"🔍 #AnálisisLaboral en {{ territorio }} | {{ periodo }}\\\\n\\\\n📉 Desempleo: 11.2% (↓0.8pp)\\\\n💼 Empleo formal: +3.2%\\\\n⚠️ Informalidad: 58.3%\\\\n\\\\nAbro hilo con los datos más relevantes 🧵👇\",\n          \"caracteres\": 180\n        },\n        {\n          \"numero\": 2,\n          \"texto\": \"1️⃣ BUENA NOTICIA: El desempleo bajó por tercer trimestre consecutivo, ubicándose en 11.2%.\\\\n\\\\nEsto significa que 3,200 personas encontraron empleo en los últimos 3 meses.\\\\n\\\\n#DatosAbiertos #DANE\",\n          \"caracteres\": 195\n        },\n        {\n          \"numero\": 3,\n          \"texto\": \"2️⃣ SECTOR SERVICIOS LIDERA: +15% de empleos formales\\\\n\\\\n🏥 Salud\\\\n🎓 Educación\\\\n💻 Servicios profesionales\\\\n\\\\nSon los motores de crecimiento. #EmpleoDigno\",\n          \"caracteres\": 158\n        },\n        {\n          \"numero\": 4,\n          \"texto\": \"3️⃣ ALERTA ROJA 🚨: La informalidad sigue en 58.3%\\\\n\\\\nEsto significa que 6 de cada 10 trabajadores NO tienen:\\\\n❌ Pensión\\\\n❌ Salud\\\\n❌ Cesantías\\\\n\\\\nUrge política de formalización. #ProtecciónSocial\",\n          \"caracteres\": 188\n        },\n        {\n          \"numero\": 5,\n          \"texto\": \"4️⃣ BRECHA DE GÉNERO persiste:\\\\n\\\\n👨 Hombres: 9.2% desempleo\\\\n👩 Mujeres: 13.8% desempleo\\\\n\\\\nDiferencia: 4.6 puntos\\\\n\\\\nNecesitamos políticas activas de equidad laboral. #IgualdadDeGénero\",\n          \"caracteres\": 178\n        },\n        {\n          \"numero\": 6,\n          \"texto\": \"5️⃣ JÓVENES: El mayor desafío\\\\n\\\\n🎓 Desempleo juvenil: 18.5%\\\\n📊 Duplica el promedio general\\\\n\\\\nLa intermediación del @SENA y programas de primer empleo son clave. #JuventudEmpleada\",\n          \"caracteres\": 180\n        },\n        {\n          \"numero\": 7,\n          \"texto\": \"📊 Informe técnico completo disponible en:\\\\n👉 [ENLACE]\\\\n\\\\nDatos abiertos del @DANE_Colombia\\\\n\\\\n#DatosQueTransforman #MercadoLaboral #Colombia\",\n          \"caracteres\": 145\n        }\n      ],\n      \"hashtags_principales\": [\"#DatosAbiertos\", \"#MercadoLaboral\", \"#DANE\", \"#EmpleoDigno\"],\n      \"menciones\": [\"@DANE_Colombia\", \"@SENA\", \"@MintrabajoCol\"],\n      \"hora_optima\": \"09:00 - 11:00 AM\"\n    },\n    {\n      \"id\": 2,\n      \"tipo\": \"tweet_grafico\",\n      \"texto\": \"📊 Evolución del Desempleo en {{ territorio }}\\\\n\\\\n✅ 2023-T1: 12.8%\\\\n✅ 2023-T2: 12.1%\\\\n✅ 2023-T3: 11.5%\\\\n✅ 2023-T4: 11.2%\\\\n\\\\n↓ Tendencia descendente sostenida\\\\n\\\\n#DatosAbiertos\",\n      \"imagen_sugerida\": \"grafico_linea_desempleo_tendencia.png\",\n      \"caracteres\": 168\n    }\n  ],\n  \n  \"linkedin\": {\n    \"post_principal\": {\n      \"titulo\": \"📊 Análisis del Mercado Laboral en {{ territorio }}: Avances, Desafíos y Ruta Estratégica\",\n      \"texto\": \"Comparto el análisis trimestral del mercado laboral en {{ territorio }} basado en datos oficiales del DANE, Lista Personal y la Agencia Pública de Empleo del SENA.\\\\n\\\\n🎯 HALLAZGOS CLAVE:\\\\n\\\\n✅ LOGROS DESTACADOS:\\\\n• Tasa de desempleo descendió a 11.2% (-0.8pp vs trimestre anterior)\\\\n• Empleo formal creció 3.2%, equivalente a 8,000 nuevas afiliaciones a seguridad social\\\\n• Sector Servicios lidera con un incremento del 15% en empleos formales\\\\n• Recuperación sostenida por tercer trimestre consecutivo\\\\n\\\\n⚠️ DESAFÍOS PERSISTENTES:\\\\n• Informalidad laboral en 58.3% (por encima del promedio nacional)\\\\n• Brecha de género de 4.6 puntos porcentuales en desempleo\\\\n• Desempleo juvenil (18-28 años) en 18.5%, duplicando el promedio general\\\\n• Sector agropecuario en contracción (-5%)\\\\n\\\\n🎯 RECOMENDACIONES ESTRATÉGICAS:\\\\n\\\\n1️⃣ Corto plazo: Programa intensivo de formalización laboral con incentivos tributarios\\\\n2️⃣ Mediano plazo: Política activa de equidad de género y empleo juvenil\\\\n3️⃣ Largo plazo: Transformación digital del mercado laboral y fortalecimiento del capital humano\\\\n\\\\n📈 PROYECCIÓN: De mantenerse las condiciones actuales, se espera cerrar 2024 con desempleo cercano al 10.5% y crecimiento del empleo formal del 4%.\\\\n\\\\n💡 REFLEXIÓN FINAL:\\\\nLos datos muestran señales alentadoras, pero las brechas estructurales exigen intervenciones focalizadas que trasciendan ciclos económicos. La formalización laboral debe ser prioridad estratégica nacional.\\\\n\\\\n📊 Informe técnico completo disponible. ¿Interesado en profundizar en algún sector específico?\\\\n\\\\n#AnálisisDeDatos #PolíticaPública #MercadoLaboral #EmpleoDigno #DatosAbiertos #DANE #TransformaciónDigital #InclusiónLaboral\",\n      \"cta\": \"¿Qué estrategias implementarías para reducir la informalidad? Te leo en comentarios 👇\",\n      \"hashtags\": [\"#AnálisisDeDatos\", \"#PolíticaPública\", \"#MercadoLaboral\", \"#DANE\"],\n      \"formato\": \"Carrusel de imágenes con gráficos clave\"\n    },\n    \"post_tecnico\": {\n      \"titulo\": \"Metodología de Análisis del Mercado Laboral: Integrando Múltiples Fuentes de Datos\",\n      \"texto\": \"Para quienes trabajan en análisis de políticas públicas, comparto la metodología utilizada en nuestro análisis laboral territorial.\\\\n\\\\n🔍 FUENTES INTEGRADAS:\\\\n1. GEIH (Gran Encuesta Integrada de Hogares) - Periodicidad trimestral\\\\n2. Lista Personal (PILA) - Afiliados a seguridad social\\\\n3. SENA - Intermediación y demanda laboral\\\\n\\\\n📊 TÉCNICAS APLICADAS:\\\\n• Análisis de series temporales\\\\n• Benchmarking territorial\\\\n• Detección de outliers (IQR y desviación estándar)\\\\n• Segmentación por género, edad y sector\\\\n\\\\n💡 INSIGHTS METODOLÓGICOS:\\\\nLa integración de estas tres fuentes permite una visión 360° del mercado laboral, cruzando oferta, demanda y formalidad.\\\\n\\\\n¿Qué otras fuentes considerarías relevantes?\\\\n\\\\n#DataScience #PolicyAnalysis #DANE\",\n      \"target\": \"Analistas, investigadores, policy makers\"\n    }\n  },\"instagram\": {\n\"post_principal\": {\n\"tipo\": \"carrusel\",\n\"caption\": \"📊 RADIOGRAFÍA DEL EMPLEO EN {{ territorio }}\\n\\nDesliza para ver los datos más importantes del mercado laboral 👉\\n\\n🔹 Desempleo: 11.2% (mejora del trimestre)\\n🔹 245K empleos formales\\n🔹 58% informalidad (alerta)\\n🔹 Servicios lidera crecimiento\\n\\nLos datos completos en nuestra bio 🔗\\n\\n#DatosQueTransforman #MercadoLaboral #Colombia #EmpleoDigno #DatosAbiertos #DANE #Informalidad #EmpleoJuvenil\",\n\"hashtags_count\": 20,\n\"slides\": [\n{\n\"numero\": 1,\n\"tipo\": \"portada\",\n\"titulo\": \"MERCADO LABORAL\",\n\"subtitulo\": \"{{ territorio }} | {{ periodo }}\",\n\"elementos\": [\"Logo DANE\", \"Paleta de colores institucional\"]\n},\n{\n\"numero\": 2,\n\"tipo\": \"metrica_grande\",\n\"dato\": \"11.2%\",\n\"label\": \"DESEMPLEO\",\n\"tendencia\": \"↓ -0.8pp\",\n\"color\": \"#28a745\",\n\"icono\": \"📉\"\n},\n{\n\"numero\": 3,\n\"tipo\": \"metrica_grande\",\n\"dato\": \"245,000\",\n\"label\": \"EMPLEOS FORMALES\",\n\"tendencia\": \"↑ +3.2%\",\n\"color\": \"#007bff\",\n\"icono\": \"💼\"\n},\n{\n\"numero\": 4,\n\"tipo\": \"alerta\",\n\"dato\": \"58.3%\",\n\"label\": \"INFORMALIDAD\",\n\"mensaje\": \"6 de cada 10 trabajadores sin protección social\",\n\"color\": \"#dc3545\",\n\"icono\": \"⚠️\"\n},\n{\n\"numero\": 5,\n\"tipo\": \"grafico_barras\",\n\"titulo\": \"EMPLEO POR SECTOR\",\n\"datos\": [\"Servicios 42%\", \"Industria 27%\", \"Comercio 23%\", \"Agro 8%\"]\n},\n{\n\"numero\": 6,\n\"tipo\": \"comparativo\",\n\"titulo\": \"BRECHA DE GÉNERO\",\n\"datos\": {\n\"hombres\": \"9.2%\",\n\"mujeres\": \"13.8%\",\n\"diferencia\": \"4.6pp\"\n}\n},\n{\n\"numero\": 7,\n\"tipo\": \"insight\",\n\"texto\": \"El Sector Servicios creció un 15% convirtiéndose en el motor del empleo formal\",\n\"fondo\": \"gradiente_azul\"\n},\n{\n\"numero\": 8,\n\"tipo\": \"dato_impactante\",\n\"texto\": \"8,000\",\n\"label\": \"NUEVOS EMPLEOS FORMALES\",\n\"periodo\": \"en el último trimestre\"\n},\n{\n\"numero\": 9,\n\"tipo\": \"llamado_accion\",\n\"texto\": \"Informe completo en\",\n\"enlace\": \"Link en bio 🔗\",\n\"hashtag\": \"#DatosAbiertos\"\n}\n],\n\"musica_sugerida\": \"Upbeat Corporate\",\n\"duracion_video\": \"15-30 segundos por slide\"\n},\n\"stories\": [\n{\n\"tipo\": \"encuesta\",\n\"pregunta\": \"¿Tienes empleo formal o informal?\",\n\"opciones\": [\"Formal\", \"Informal\"]\n},\n{\n\"tipo\": \"quiz\",\n\"pregunta\": \"¿Cuál es la tasa de desempleo en {{ territorio }}?\",\n\"opciones\": [\"11.2%\", \"15.8%\", \"8.3%\"],\n\"respuesta_correcta\": \"11.2%\"\n},\n{\n\"tipo\": \"deslizar\",\n\"texto\": \"Desliza para ver cómo ha evolucionado el desempleo\",\n\"grafico\": \"linea_tendencia\"\n}\n],\n\"reels\": {\n\"concepto\": \"\"Del dato a la acción: Así se ve el mercado laboral en números\"\",\n\"duracion\": \"45 segundos\",\n\"guion\": [\n\"00-05s: Hook visual con número impactante (11.2%)\",\n\"05-15s: Gráfico animado de evolución trimestral\",\n\"15-25s: Comparativo sectores con iconos\",\n\"25-35s: Alerta informalidad con efecto de zoom\",\n\"35-45s: CTA con enlace a informe completo\"\n],\n\"musica\": \"Energética pero profesional\",\n\"subtitulos\": \"Sí (obligatorio para accesibilidad)\"\n}\n},\"facebook\": {\n\"post_comunidad\": {\n\"texto\": \"📊 ¿Sabías que el desempleo en {{ territorio }} bajó a 11.2%? 📉\\n\\nCompartimos el análisis completo del mercado laboral con datos oficiales del DANE:\\n\\n✅ Lo bueno:\\n• 8,000 nuevos empleos formales\\n• Sector Servicios crece un 15%\\n• Tercer trimestre de mejora continua\\n\\n⚠️ Los retos:\\n• Informalidad en 58.3%\\n• Desempleo juvenil muy alto (18.5%)\\n• Brecha de género persiste\\n\\n💬 Cuéntanos: ¿Has notado mejoras en las oportunidades de empleo en tu zona? ¿Qué sectores crees que tienen más potencial?\\n\\n👉 Lee el informe completo: [ENLACE]\\n\\n#DatosAbiertos #MercadoLaboral #Colombia\",\n\"tipo_publicacion\": \"Link + Imagen destacada\",\n\"objetivo\": \"Engagement y conversación comunitaria\"\n},\n\"evento\": {\n\"nombre\": \"Webinar: Análisis del Mercado Laboral en {{ territorio }}\",\n\"descripcion\": \"Presentación de resultados y sesión de preguntas con expertos del DANE\",\n\"fecha_sugerida\": \"+7 días\",\n\"formato\": \"Facebook Live\"\n}\n},\"contenido_visual\": {\n\"paleta_colores\": {\n\"principal\": \"#0039a6\",\n\"positivo\": \"#28a745\",\n\"negativo\": \"#dc3545\",\n\"neutro\": \"#ffc107\",\n\"fondo\": \"#f5f7fa\"\n},\n\"tipografia\": {\n\"titulos\": \"Montserrat Bold\",\n\"cuerpo\": \"Open Sans Regular\",\n\"datos\": \"Roboto Mono\"\n},\n\"graficos_prioritarios\": [\n{\n\"id\": \"img1\",\n\"tipo\": \"linea\",\n\"titulo\": \"Evolución Desempleo\",\n\"formato\": \"1080x1080 (Instagram)\",\n\"elementos\": [\"Línea territorial\", \"Línea nacional\", \"Leyenda\", \"Logo DANE\"]\n},\n{\n\"id\": \"img2\",\n\"tipo\": \"gauge\",\n\"titulo\": \"Informalidad\",\n\"formato\": \"1200x628 (Facebook/LinkedIn)\",\n\"elementos\": [\"Gauge 58.3%\", \"Zona roja >55%\", \"Benchmark nacional\"]\n},\n{\n\"id\": \"img3\",\n\"tipo\": \"barras_horizontales\",\n\"titulo\": \"Empleo por Sector\",\n\"formato\": \"1080x1920 (Instagram Stories)\",\n\"elementos\": [\"5 sectores\", \"Colores diferenciados\", \"Porcentajes\"]\n}\n],\n\"plantillas\": {\n\"metrica_kpi\": \"Fondo degradado azul, dato grande centrado, tendencia con flecha\",\n\"comparativo\": \"Split screen hombres/mujeres con iconos\",\n\"alerta\": \"Fondo rojo suave, icono de advertencia, texto destacado\"\n}\n},\"calendario_publicacion\": {\n\"dia_1\": {\n\"Twitter\": \"Hilo completo 09:00 AM\",\n\"LinkedIn\": \"Post principal 10:00 AM\",\n\"Instagram\": \"Carrusel 12:00 PM\"\n},\n\"dia_2\": {\n\"Instagram\": \"Stories interactivos\",\n\"Facebook\": \"Post comunidad 03:00 PM\"\n},\n\"dia_3\": {\n\"Twitter\": \"Tweet con gráfico individual\",\n\"LinkedIn\": \"Post técnico metodología\"\n},\n\"dia_7\": {\n\"Todos\": \"Webinar/Live\"\n}\n},\"kpis_seguimiento\": {\n\"Twitter\": {\n\"impresiones_objetivo\": 50000,\n\"engagement_rate_objetivo\": \"3.5%\",\n\"retweets_objetivo\": 200\n},\n\"LinkedIn\": {\n\"visualizaciones_objetivo\": 10000,\n\"comentarios_objetivo\": 50,\n\"compartidos_objetivo\": 150\n},\n\"Instagram\": {\n\"alcance_objetivo\": 25000,\n\"guardados_objetivo\": 500,\n\"compartidos_stories_objetivo\": 300\n}\n}\n}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        560
+      ],
+      "id": "955a2c03-dbfa-430a-bca3-1ef4e4dd0760",
+      "name": "Content Manager RRSS"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": "="
+        }
+      },
+      "id": "783d1432-c698-4b46-a7e2-41411ec71ab6",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        1856,
+        752
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "730f8c0f-024d-4812-a647-c68cc401d800",
+      "name": "Google Gemini Chat Model7",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        464,
+        752
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8ccd835d-9c50-4338-b22c-f03a900e5099",
+      "name": "Google Gemini Chat Model3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        768,
+        736
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ed75988e-3179-427a-96d3-808903ce860c",
+      "name": "Google Gemini Chat Model4",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        1200,
+        736
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "j16UWIWI2VgXp1OU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Calculator1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente 2: Estadístico Visual ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente 2: Estadístico Visual ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente 2: Estadístico Visual ",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "🏆 Configuración Reto DANE": {
+      "main": [
+        [
+          {
+            "node": "Prepare Filters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente 2: Estadístico Visual ",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Filters": {
+      "main": [
+        [
+          {
+            "node": "Agente 2: Estadístico Visual ",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Agente 1: Analista e Investigador",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "3 Agentes + Power BI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Content Manager RRSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agente 1: Analista e Investigador",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente 1: Analista e Investigador": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente 2: Estadístico Visual ": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "3 Agentes + Power BI",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "3 Agentes + Power BI",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in Data table1": {
+      "ai_tool": [
+        [
+          {
+            "node": "3 Agentes + Power BI",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "3 Agentes + Power BI": {
+      "main": [
+        [
+          {
+            "node": "Get a dataset",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily Search DANE": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agente 1: Analista e Investigador",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Social Media Content": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Social Media Sub-flow",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Approved?": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "X Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Result": {
+      "main": [
+        []
+      ]
+    },
+    "Prepare Content Review Email": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Content Approved?": {
+      "main": [
+        [
+          {
+            "node": "Generate an image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "Social Media Sub-flow",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail": {
+      "main": [
+        [
+          {
+            "node": "Is Content Approved?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn Post": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "X Post": {
+      "main": [
+        [
+          {
+            "node": "X Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "X Result": {
+      "main": [
+        []
+      ]
+    },
+    "Generate an image1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Default True 2": {
+      "main": [
+        [
+          {
+            "node": "Is Approved?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Social Media Sub-flow": {
+      "main": [
+        [
+          {
+            "node": "Prepare Content Review Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Social Media Sub-flow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Manager RRSS": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Set Default True 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Content Manager RRSS",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Social Media Sub-flow",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Prepare Content Review Email",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "415620c1-d4d4-4036-8e71-7b7ba8b940f7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bd5da4660669aee1afb6a68832772fddb119cd2c210bfa81f4bcdddd75eedc6d"
+  },
+  "id": "llVRj2yT91y14zka",
+  "tags": []
+}
